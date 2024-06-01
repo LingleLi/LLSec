@@ -1,0 +1,9 @@
+模型chatglm, 预测文件chatglm_10shot.json: bleu: 0.5334, precision: 0.7579, recall: 0.5205, F1 score: 0.5456
+
+
+模型chatglm, 预测文件chatglm_5shot.json: bleu: 0.5326, precision: 0.7412, recall: 0.537, F1 score: 0.5433
+
+
+模型chatglm, 预测文件chatglm_docshot.json: bleu: 0.6329, precision: 0.8448, recall: 0.4748, F1 score: 0.553
+
+

@@ -1,0 +1,15 @@
+Ours mengzi:
+331 are correct with a total of 334
+acc: 0.9910
+
+
+Ours llama2 lora:
+308 are correct with a total of 334
+acc: 0.9222
+
+
+Ours llama2 fine-tune:
+313 are correct with a total of 334
+acc: 0.9371
+
+

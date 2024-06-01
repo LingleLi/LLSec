@@ -1,0 +1,9 @@
+模型mengzi, 预测文件ours_test_result_mengzi.txt: bleu: 0.8243, precision: 0.7543, recall: 0.8032, F1 score: 0.7687
+
+
+模型llama2_fine-tune, 预测文件ours_test_result_llama2_fine-tune.json: bleu: 0.8671, precision: 0.776, recall: 0.7659, F1 score: 0.7679
+
+
+模型llama2_lora, 预测文件ours_test_result_llama2_lora.json: bleu: 0.9647, precision: 0.93, recall: 0.9355, F1 score: 0.932
+
+

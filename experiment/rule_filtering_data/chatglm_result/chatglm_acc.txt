@@ -1,0 +1,33 @@
+file chatglm_predict_result_10shot.json, acc: 0.4161676646706587
+
+real_0_pred_1: 122
+real_0_pred_2: 52
+real_1_pred_0: 5
+real_1_pred_2: 3
+real_2_pred_0: 0
+real_2_pred_1: 13
+
+
+
+file chatglm_predict_result_5shot.json, acc: 0.40119760479041916
+
+real_0_pred_1: 127
+real_0_pred_2: 53
+real_1_pred_0: 4
+real_1_pred_2: 1
+real_2_pred_0: 0
+real_2_pred_1: 15
+
+
+
+file chatglm_predict_result_docshot.json, acc: 0.6347305389221557
+
+real_0_pred_1: 91
+real_0_pred_2: 1
+real_1_pred_0: 13
+real_1_pred_2: 0
+real_2_pred_0: 3
+real_2_pred_1: 14
+
+
+

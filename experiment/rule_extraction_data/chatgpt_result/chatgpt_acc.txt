@@ -1,0 +1,9 @@
+模型chatgpt, 预测文件chatgpt_10shot.json: bleu: 0.5554, precision: 0.7983, recall: 0.5482, F1 score: 0.6054
+
+
+模型chatgpt, 预测文件chatgpt_5shot.json: bleu: 0.5763, precision: 0.6976, recall: 0.5714, F1 score: 0.5543
+
+
+模型chatgpt, 预测文件chatgpt_docshot.json: bleu: 0.6204, precision: 0.9776, recall: 0.4469, F1 score: 0.5714
+
+

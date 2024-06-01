@@ -1,0 +1,33 @@
+file chatgpt_predict_result_10shot.json, acc: 0.5958083832335329
+
+real_0_pred_1: 83
+real_0_pred_2: 28
+real_1_pred_0: 7
+real_1_pred_2: 7
+real_2_pred_0: 0
+real_2_pred_1: 10
+
+
+
+file chatgpt_predict_result_5shot.json, acc: 0.592814371257485
+
+real_0_pred_1: 69
+real_0_pred_2: 40
+real_1_pred_0: 11
+real_1_pred_2: 2
+real_2_pred_0: 2
+real_2_pred_1: 12
+
+
+
+file chatgpt_predict_result_docshot.json, acc: 0.7245508982035929
+
+real_0_pred_1: 66
+real_0_pred_2: 0
+real_1_pred_0: 9
+real_1_pred_2: 0
+real_2_pred_0: 3
+real_2_pred_1: 14
+
+
+
