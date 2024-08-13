@@ -1,0 +1,61 @@
+New York Stock Exchange Dealings and Settlements Rules
+
+53.1 Only securities admitted to dealings on an "issued," "when issued," or "when distributed" basis shall be dealt in upon the Exchange.
+
+63.1 Bids and offers in securities admitted to dealings on a "when issued" basis shall be made only "when issued," i.e., for delivery when issued as determined by the Exchange.
+
+63.2 Bids and offers in securities admitted to dealings on a "when distributed" basis shall be made only "when distributed," i.e., for delivery when distributed as determined by the Exchange.
+
+66.1 Bids and offers in securities of the United States Government admitted to dealings on an "issued" basis shall be made only as the "regular way."
+
+71.1 All verbal bids made and accepted, and all verbal offers made and accepted, in accordance with Exchange Rules shall be binding.
+
+71.2 Any verbal bid that is made at the same or higher price of the prevailing offer shall result in a transaction at the offer price in an amount equal to the lesser of the bid or offer. The same principle shall apply when a verbal offer is made at the same or lower price as the bid.
+
+74.1 A claim by a member who states that he had on the Floor a prior or better bid or offer shall not be sustained if the bid or offer was not made with the publicity and frequency necessary to make the existence of such bid or offer generally known at the time of the transaction.
+
+76.1 When a member has an order to buy and an order to sell the same security, he or she shall offer such security at a price which is higher than his or her bid by the minimum variation permitted in such security before making a transaction with himself or herself. All such bids and offers shall be clearly announced to the trading Crowd before the member may proceed with the proposed "cross" transaction.
+
+77.1 No member shall offer publicly on the Floor: (1) To buy or sell securities "on stop" above or below the market; (2) to buy or sell securities "at the close"; (3) to buy or sell dividends; (4) to bet upon the course of the market; or (5) to buy or sell privileges to receive or deliver securities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+纽约证券交易所交易和结算规则
+
+53.1 只有获准以“已发行”、“发行时”或“分销时”为基础进行交易的证券才可在联交所交易。
+
+63.1 对获准以“发行时”为基础进行交易的证券的买卖，应仅在“发行时”进行，即在交易所确定的发行时进行交割。
+
+63.2 对获准以“分派时”方式进行交易的证券的买卖，只应在“分派时”进行，即在联交所确定的分派时交割。
+
+66.1 美国政府的证券的买卖被承认以“发行”为基础进行交易，应仅以“常规方式”进行。
+
+71.1 根据交易规则作出和接受的所有口头出价，以及作出和接受的所有口头要约均应具有约束力。
+
+71.2 任何以与胜诉报价相同或更高的价格进行的口头出价，均应导致以报价进行交易，其金额等于出价或报价中较低者。当以与出价相同或更低的价格提出口头要约时，也应适用同样的原则。
+
+74.1 如果一名成员声称他在会场内有过先前或更好的出价或要约，如果该出价或要约没有以必要的公示和频率进行，以便在交易时普遍了解这种出价或要约的存在，则该要求不予支持。
+
+76.1 当会员有购买订单和出售相同证券的订单时，他或她应在与自己进行交易之前，以高于他或她的出价（此类证券允许的最小变动）的价格提供此类证券。在会员进行拟议的“交叉”交易之前，应向交易人群明确宣布所有此类出价和卖出。
+
+77.1 任何成员均不得在会场上公开提出：(1)在市场上方或低于市场价“止损”时买入或卖出证券; (2)在“收盘时”买入或卖出证券; (3)买入、卖出股利; (4) 押注市场走势; (5)买卖、收取、交付有价证券的特权。
+

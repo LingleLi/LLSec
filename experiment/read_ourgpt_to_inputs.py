@@ -51,3 +51,10 @@ if __name__ == "__main__":
             inputs = to_inputs(s)
             dataset = file.split("_")[0]
             json.dump(inputs, open(f"exp2_data/our_inputs/{dataset}_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    
+    for file in os.listdir("exp4_data/our_inputs"):
+        if ".txt" in file and "pre" not in file:
+            s = open("exp4_data/our_inputs/" + file, "r", encoding="utf-8").read()
+            inputs = to_inputs(s)
+            dataset = file.split("_")[0]
+            json.dump(inputs, open(f"exp4_data/our_inputs/{dataset}_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

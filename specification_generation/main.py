@@ -12,9 +12,14 @@ import time
 import argparse
 
 
-def main_filtering(input_file="rules_cache/深圳证券交易所债券交易规则.pdf", model_path="../train_rule_filtering_model/model/mengzi_rule_filtering", setting_file="rules_cache/setting.json"):
+def main_filtering(input_file=None, input_data=None, model_path="../train_rule_filtering_model/model/mengzi_rule_filtering", setting_file="rules_cache/setting.json"):
     # 读输入文件
-    sci, setting = preprocess(nl_file=input_file)
+    if input_file is not None:
+        sci, setting = preprocess(nl_file=input_file)
+    elif input_data is not None:
+        sci, setting = preprocess(nl_data=input_data)
+    else:
+        raise ValueError("未指定输入文件或输入文字")
     # 规则筛选
     sco = filtering(sci, model_path)
     # 保存结果
@@ -97,10 +102,17 @@ if __name__ == "__main__":
     parser.add_argument("--input_file", type=str, default="rules_cache/深圳证券交易所债券交易规则.pdf", help="输入文件")
     args = parser.parse_args()
     begin_time = time.time()
-    main_filtering(input_file=args.input_file)
+    if ".pdf" in args.input_file:
+        main_filtering(input_file=args.input_file)
+    else:
+        data = open(args.input_file, "r", encoding="utf-8").read()
+        main_filtering(input_data=data)
     time_consume = time.time() - begin_time
     print(f"规则过滤消耗时间: {time_consume}")
-    # GPT task
+    exit(0)
+    ####################################
+    ###           GPT task           ###
+    ####################################
     main(input_file="rules_cache/input.json")
     time_consume1 = time.time() - begin_time
     print(f"总共消耗时间: {time_consume1}")
