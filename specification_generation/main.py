@@ -109,7 +109,7 @@ if __name__ == "__main__":
         main_filtering(input_data=data)
     time_consume = time.time() - begin_time
     print(f"规则过滤消耗时间: {time_consume}")
-    exit(0)
+    # exit(0)
     ####################################
     ###           GPT task           ###
     ####################################

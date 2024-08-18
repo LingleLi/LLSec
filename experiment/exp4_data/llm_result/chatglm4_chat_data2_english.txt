@@ -1,0 +1,722 @@
+Q
+Now please play the role of a financial testing expert, engaged in testing financial business rules. You are good at generating requirement specifications from business rules.
+For example, for the input rule: "3.3.4 The declared quantity of bond general pledge repo should be 1000 yuan face value or its integer multiple",
+The corresponding output requirement specification is:
+id: 3.3.4_1
+Test focus: quantity
+Transaction method: Negotiated transaction
+Transaction type: general pledge repurchase of bonds
+Quantity: 1000 yuan face value or integer multiples thereof
+Trading market: Shenzhen Stock Exchange
+Trading direction: Sell
+Operation: Declaration
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+
+id: 3.3.4_2
+Test focus: quantity
+Transaction method: Negotiated transaction
+Transaction type: general pledge repurchase of bonds
+Quantity: Non 1000 yuan denomination or integer multiples thereof
+Trading market: Shenzhen Stock Exchange
+Trading direction: Sell
+Operation: Declaration
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+
+Next, I will provide you with some business rules related to the financial field. Please follow the format in the example and write corresponding requirement specifications (including counterexamples) for each rule that needs to be tested. A requirement specification contains a series of rules with sequential dependencies. If a rule has a sequential relationship with other rules, please write the ID of its predecessor or successor rule in the corresponding requirement specification.
+1. Based on your domain knowledge, extract keywords and test points from the rules. If the rule description is relatively brief, you need to supplement the test points that are not mentioned. All requirement specifications must include four testing points: trading market, trading variety, trading method, and trading direction.
+2. The generation of requirement specifications should be as detailed and comprehensive as possible. It should include both successful use cases that satisfy constraints and generate unsuccessful use cases.
+3. Each requirement specification needs to have a result, which is success or failure.
+
+A
+
+id: 1.1.1
+Business Rule: "1.1.1 The minimum transaction amount for online stock trading is 100 shares."
+Requirement Specification:
+id: 1.1.1_1
+Test focus: Minimum transaction amount
+Transaction method: Online trading
+Transaction type: Stock trading
+Quantity: 100 shares
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Buy
+Operation: Transaction
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+id: 1.1.1_2
+Test focus: Minimum transaction amount
+Transaction method: Online trading
+Transaction type: Stock trading
+Quantity: 99 shares
+Trading market: NYSE
+Trading direction: Buy
+Operation: Transaction
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+id: 1.1.2
+Business Rule: "1.1.2 The maximum daily withdrawal limit for an ATM is 20,000 yuan."
+Requirement Specification:
+id: 1.1.2_1
+Test focus: Maximum daily withdrawal limit
+Transaction method: ATM withdrawal
+Transaction type: Cash withdrawal
+Amount: 20,000 yuan
+Trading market: N/A (ATM)
+Trading direction: Withdrawal
+Operation: Transaction
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+id: 1.1.2_2
+Test focus: Maximum daily withdrawal limit
+Transaction method: ATM withdrawal
+Transaction type: Cash withdrawal
+Amount: 20,001 yuan
+Trading market: N/A (ATM)
+Trading direction: Withdrawal
+Operation: Transaction
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+id: 2.2.3
+Business Rule: "2.2.3 For futures contracts, the margin requirement must be met before initiating a trade."
+Requirement Specification:
+id: 2.2.3_1
+Test focus: Margin requirement
+Transaction method: Futures trading
+Transaction type: Futures contract
+Margin requirement: Met
+Trading market: Chicago Mercantile Exchange (CME)
+Trading direction: Buy
+Operation: Trade initiation
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+id: 2.2.3_2
+Test focus: Margin requirement
+Transaction method: Futures trading
+Transaction type: Futures contract
+Margin requirement: Not met
+Trading market: CME
+Trading direction: Buy
+Operation: Trade initiation
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+id: 3.3.5
+Business Rule: "3.3.5 The settlement of government bond transactions must occur within T+1 days."
+Requirement Specification:
+id: 3.3.5_1
+Test focus: Settlement period
+Transaction method: Government bond trading
+Transaction type: Bond transaction
+Settlement period: T+1 days
+Trading market: Shanghai Stock Exchange (SSE)
+Trading direction: Sell
+Operation: Settlement
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+id: 3.3.5_2
+Test focus: Settlement period
+Transaction method: Government bond trading
+Transaction type: Bond transaction
+Settlement period: T+2 days
+Trading market: SSE
+Trading direction: Sell
+Operation: Settlement
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+
+
+Q
+New York Stock Exchange Dealings and Settlements Rules
+
+53.1 Only securities admitted to dealings on an "issued," "when issued," or "when distributed" basis shall be dealt in upon the Exchange.
+
+A
+id: 53.1_1
+Test focus: Securities dealing basis
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Admitted to dealings as "issued"
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Buy/Sell
+Operation: Dealing
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+id: 53.1_2
+Test focus: Securities dealing basis
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Admitted to dealings as "when issued"
+Trading market: NYSE
+Trading direction: Buy/Sell
+Operation: Dealing
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+id: 53.1_3
+Test focus: Securities dealing basis
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Admitted to dealings as "when distributed"
+Trading market: NYSE
+Trading direction: Buy/Sell
+Operation: Dealing
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+id: 53.1_4
+Test focus: Securities dealing basis
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Not admitted to dealings as "issued," "when issued," or "when distributed"
+Trading market: NYSE
+Trading direction: Buy/Sell
+Operation: Dealing
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+
+
+Q
+63.1 Bids and offers in securities admitted to dealings on a "when issued" basis shall be made only "when issued," i.e., for delivery when issued as determined by the Exchange.
+
+A
+id: 63.1_1
+Test focus: "When issued" securities bidding and offering
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Admitted to dealings on a "when issued" basis
+Bidding and offering timing: "When issued"
+Delivery timing: As determined by the Exchange
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Successful
+Prerequisite rule: [53.1]
+Post rule: []
+id: 63.1_2
+Test focus: "When issued" securities bidding and offering
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Admitted to dealings on a "when issued" basis
+Bidding and offering timing: Before "when issued"
+Delivery timing: Not applicable
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Unsuccessful
+Prerequisite rule: [53.1]
+Post rule: []
+id: 63.1_3
+Test focus: "When issued" securities bidding and offering
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Admitted to dealings on a "when issued" basis
+Bidding and offering timing: After "when issued"
+Delivery timing: Not applicable
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Unsuccessful
+Prerequisite rule: [53.1]
+Post rule: []
+id: 63.1_4
+Test focus: "When issued" securities bidding and offering
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Not admitted to dealings on a "when issued" basis
+Bidding and offering timing: "When issued"
+Delivery timing: Not applicable
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Unsuccessful
+Prerequisite rule: [53.1]
+Post rule: []
+
+
+Q
+63.2 Bids and offers in securities admitted to dealings on a "when distributed" basis shall be made only "when distributed," i.e., for delivery when distributed as determined by the Exchange.
+
+A
+id: 63.2_1
+Test focus: "When distributed" securities bidding and offering
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Admitted to dealings on a "when distributed" basis
+Bidding and offering timing: "When distributed"
+Delivery timing: As determined by the Exchange
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Successful
+Prerequisite rule: [53.1]
+Post rule: []
+id: 63.2_2
+Test focus: "When distributed" securities bidding and offering
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Admitted to dealings on a "when distributed" basis
+Bidding and offering timing: Before "when distributed"
+Delivery timing: Not applicable
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Unsuccessful
+Prerequisite rule: [53.1]
+Post rule: []
+id: 63.2_3
+Test focus: "When distributed" securities bidding and offering
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Admitted to dealings on a "when distributed" basis
+Bidding and offering timing: After "when distributed"
+Delivery timing: Not applicable
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Unsuccessful
+Prerequisite rule: [53.1]
+Post rule: []
+id: 63.2_4
+Test focus: "When distributed" securities bidding and offering
+Transaction method: Exchange trading
+Transaction type: Securities trading
+Securities status: Not admitted to dealings on a "when distributed" basis
+Bidding and offering timing: "When distributed"
+Delivery timing: Not applicable
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Unsuccessful
+Prerequisite rule: [53.1]
+Post rule: []
+
+
+Q
+66.1 Bids and offers in securities of the United States Government admitted to dealings on an "issued" basis shall be made only as the "regular way."
+
+A
+id: 66.1_1
+Test focus: "Regular way" bidding and offering for U.S. Government securities
+Transaction method: Exchange trading
+Transaction type: U.S. Government securities trading
+Securities status: Admitted to dealings on an "issued" basis
+Bidding and offering method: "Regular way"
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Successful
+Prerequisite rule: [53.1]
+Post rule: []
+id: 66.1_2
+Test focus: "Regular way" bidding and offering for U.S. Government securities
+Transaction method: Exchange trading
+Transaction type: U.S. Government securities trading
+Securities status: Admitted to dealings on an "issued" basis
+Bidding and offering method: Not "regular way"
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Unsuccessful
+Prerequisite rule: [53.1]
+Post rule: []
+id: 66.1_3
+Test focus: "Regular way" bidding and offering for U.S. Government securities
+Transaction method: Exchange trading
+Transaction type: U.S. Government securities trading
+Securities status: Not admitted to dealings on an "issued" basis
+Bidding and offering method: "Regular way"
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Unsuccessful
+Prerequisite rule: [53.1]
+Post rule: []
+id: 66.1_4
+Test focus: "Regular way" bidding and offering for U.S. Government securities
+Transaction method: Exchange trading
+Transaction type: U.S. Government securities trading
+Securities status: Admitted to dealings on an "issued" basis
+Bidding and offering method: "Regular way" but with incorrect settlement terms
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Placement of bid or offer
+Result: Unsuccessful
+Prerequisite rule: [53.1]
+Post rule: []
+
+
+Q
+71.1 All verbal bids made and accepted, and all verbal offers made and accepted, in accordance with Exchange Rules shall be binding.
+
+A
+id: 71.1_1
+Test focus: Binding nature of verbal bids and offers
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal bid made and accepted
+Binding status: Binding
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Bid
+Operation: Making and accepting a verbal bid
+Result: Successful (Binding)
+Prerequisite rule: []
+Post rule: []
+id: 71.1_2
+Test focus: Binding nature of verbal bids and offers
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal offer made and accepted
+Binding status: Binding
+Trading market: NYSE
+Trading direction: Offer
+Operation: Making and accepting a verbal offer
+Result: Successful (Binding)
+Prerequisite rule: []
+Post rule: []
+id: 71.1_3
+Test focus: Non-binding nature of verbal bids and offers
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal bid made but not accepted
+Binding status: Non-binding
+Trading market: NYSE
+Trading direction: Bid
+Operation: Making a verbal bid
+Result: Not applicable (No acceptance)
+Prerequisite rule: []
+Post rule: []
+id: 71.1_4
+Test focus: Non-binding nature of verbal bids and offers
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal offer made but not accepted
+Binding status: Non-binding
+Trading market: NYSE
+Trading direction: Offer
+Operation: Making a verbal offer
+Result: Not applicable (No acceptance)
+Prerequisite rule: []
+Post rule: []
+id: 71.1_5
+Test focus: Binding nature of verbal bids and offers
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal bid made and accepted but not in accordance with Exchange Rules
+Binding status: Not binding (due to non-compliance)
+Trading market: NYSE
+Trading direction: Bid
+Operation: Making and accepting a non-compliant verbal bid
+Result: Unsuccessful (Not binding)
+Prerequisite rule: []
+Post rule: []
+id: 71.1_6
+Test focus: Binding nature of verbal bids and offers
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal offer made and accepted but not in accordance with Exchange Rules
+Binding status: Not binding (due to non-compliance)
+Trading market: NYSE
+Trading direction: Offer
+Operation: Making and accepting a non-compliant verbal offer
+Result: Unsuccessful (Not binding)
+Prerequisite rule: []
+Post rule: []
+
+
+Q
+71.2 Any verbal bid that is made at the same or higher price of the prevailing offer shall result in a transaction at the offer price in an amount equal to the lesser of the bid or offer. The same principle shall apply when a verbal offer is made at the same or lower price as the bid.
+
+A
+id: 71.2_1
+Test focus: Execution of verbal bids at or above offer price
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal bid at the same price as the prevailing offer
+Execution rule: Transaction at offer price, amount equal to the lesser of bid or offer
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Bid
+Operation: Making a verbal bid
+Result: Successful (Transaction at offer price)
+Prerequisite rule: [71.1]
+Post rule: []
+id: 71.2_2
+Test focus: Execution of verbal bids at or above offer price
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal bid at a higher price than the prevailing offer
+Execution rule: Transaction at offer price, amount equal to the lesser of bid or offer
+Trading market: NYSE
+Trading direction: Bid
+Operation: Making a verbal bid
+Result: Successful (Transaction at offer price)
+Prerequisite rule: [71.1]
+Post rule: []
+id: 71.2_3
+Test focus: Execution of verbal offers at or below bid price
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal offer at the same price as the prevailing bid
+Execution rule: Transaction at bid price, amount equal to the lesser of bid or offer
+Trading market: NYSE
+Trading direction: Offer
+Operation: Making a verbal offer
+Result: Successful (Transaction at bid price)
+Prerequisite rule: [71.1]
+Post rule: []
+id: 71.2_4
+Test focus: Execution of verbal offers at or below bid price
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal offer at a lower price than the prevailing bid
+Execution rule: Transaction at bid price, amount equal to the lesser of bid or offer
+Trading market: NYSE
+Trading direction: Offer
+Operation: Making a verbal offer
+Result: Successful (Transaction at bid price)
+Prerequisite rule: [71.1]
+Post rule: []
+id: 71.2_5
+Test focus: Non-execution of verbal bids below offer price
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal bid at a lower price than the prevailing offer
+Execution rule: No transaction
+Trading market: NYSE
+Trading direction: Bid
+Operation: Making a verbal bid
+Result: Unsuccessful (No transaction)
+Prerequisite rule: [71.1]
+Post rule: []
+id: 71.2_6
+Test focus: Non-execution of verbal offers above bid price
+Transaction method: Verbal communication
+Transaction type: Securities trading
+Nature of transaction: Verbal offer at a higher price than the prevailing bid
+Execution rule: No transaction
+Trading market: NYSE
+Trading direction: Offer
+Operation: Making a verbal offer
+Result: Unsuccessful (No transaction)
+Prerequisite rule: [71.1]
+Post rule: []
+
+
+Q
+74.1 A claim by a member who states that he had on the Floor a prior or better bid or offer shall not be sustained if the bid or offer was not made with the publicity and frequency necessary to make the existence of such bid or offer generally known at the time of the transaction.
+
+A
+id: 74.1_1
+Test focus: Validity of prior or better bid/offer claims
+Transaction method: Floor trading
+Transaction type: Securities trading
+Nature of claim: Prior or better bid/offer existence
+Claim validity: Claim not sustained without necessary publicity and frequency
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Bid/Offer
+Operation: Making a claim for a prior or better bid/offer
+Result: Unsuccessful (Claim not sustained)
+Prerequisite rule: []
+Post rule: []
+id: 74.1_2
+Test focus: Validity of prior or better bid/offer claims
+Transaction method: Floor trading
+Transaction type: Securities trading
+Nature of claim: Prior or better bid/offer existence with sufficient publicity and frequency
+Claim validity: Claim sustained
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Making a claim for a prior or better bid/offer
+Result: Successful (Claim sustained)
+Prerequisite rule: []
+Post rule: []
+id: 74.1_3
+Test focus: Validity of prior or better bid/offer claims
+Transaction method: Floor trading
+Transaction type: Securities trading
+Nature of claim: Prior or better bid/offer existence without any publicity
+Claim validity: Claim not sustained
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Making a claim for a prior or better bid/offer
+Result: Unsuccessful (Claim not sustained)
+Prerequisite rule: []
+Post rule: []
+id: 74.1_4
+Test focus: Validity of prior or better bid/offer claims
+Transaction method: Floor trading
+Transaction type: Securities trading
+Nature of claim: Prior or better bid/offer existence with insufficient frequency
+Claim validity: Claim not sustained
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Making a claim for a prior or better bid/offer
+Result: Unsuccessful (Claim not sustained)
+Prerequisite rule: []
+Post rule: []
+id: 74.1_5
+Test focus: Validity of prior or better bid/offer claims
+Transaction method: Floor trading
+Transaction type: Securities trading
+Nature of claim: Prior or better bid/offer made but not at the time of the transaction
+Claim validity: Claim not sustained
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Making a claim for a prior or better bid/offer
+Result: Unsuccessful (Claim not sustained)
+Prerequisite rule: []
+Post rule: []
+
+
+Q
+76.1 When a member has an order to buy and an order to sell the same security, he or she shall offer such security at a price which is higher than his or her bid by the minimum variation permitted in such security before making a transaction with himself or herself. All such bids and offers shall be clearly announced to the trading Crowd before the member may proceed with the proposed "cross" transaction.
+
+A
+id: 76.1_1
+Test focus: "Cross" transaction pricing and announcement
+Transaction method: Floor trading
+Transaction type: Securities trading
+Transaction scenario: Member has matching buy and sell orders for the same security
+Pricing rule: Offer price must be higher than the bid by the minimum variation permitted
+Announcement requirement: Bids and offers must be clearly announced to the trading Crowd
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Bid/Offer
+Operation: Initiating a "cross" transaction
+Result: Successful (After proper announcement and pricing)
+Prerequisite rule: []
+Post rule: []
+id: 76.1_2
+Test focus: "Cross" transaction pricing and announcement
+Transaction method: Floor trading
+Transaction type: Securities trading
+Transaction scenario: Member has matching buy and sell orders for the same security
+Pricing rule: Offer price is not higher than the bid by the minimum variation permitted
+Announcement requirement: Bids and offers announced
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Initiating a "cross" transaction
+Result: Unsuccessful (Due to incorrect pricing)
+Prerequisite rule: []
+Post rule: []
+id: 76.1_3
+Test focus: "Cross" transaction pricing and announcement
+Transaction method: Floor trading
+Transaction type: Securities trading
+Transaction scenario: Member has matching buy and sell orders for the same security
+Pricing rule: Offer price is higher than the bid by the minimum variation permitted
+Announcement requirement: Bids and offers not clearly announced
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Initiating a "cross" transaction
+Result: Unsuccessful (Due to lack of proper announcement)
+Prerequisite rule: []
+Post rule: []
+id: 76.1_4
+Test focus: "Cross" transaction pricing and announcement
+Transaction method: Floor trading
+Transaction type: Securities trading
+Transaction scenario: Member has matching buy and sell orders for the same security
+Pricing rule: Offer price is higher than the bid by more than the minimum variation permitted
+Announcement requirement: Bids and offers clearly announced
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Initiating a "cross" transaction
+Result: Successful (After proper announcement, regardless of excess variation)
+Prerequisite rule: []
+Post rule: []
+id: 76.1_5
+Test focus: "Cross" transaction pricing and announcement
+Transaction method: Floor trading
+Transaction type: Securities trading
+Transaction scenario: Member does not have matching buy and sell orders
+Pricing rule: Not applicable
+Announcement requirement: Not applicable
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Attempting to initiate a "cross" transaction
+Result: Not applicable (No matching orders)
+Prerequisite rule: []
+Post rule: []
+
+
+Q
+77.1 No member shall offer publicly on the Floor: (1) To buy or sell securities "on stop" above or below the market; (2) to buy or sell securities "at the close"; (3) to buy or sell dividends; (4) to bet upon the course of the market; or (5) to buy or sell privileges to receive or deliver securities.
+
+A
+id: 77.1_1
+Test focus: Prohibited public offers on the Floor
+Transaction method: Floor trading
+Transaction type: Securities trading
+Prohibited activity: Offering to buy or sell securities "on stop" above or below the market
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Bid/Offer
+Operation: Making a public offer
+Result: Unsuccessful (Prohibited activity)
+Prerequisite rule: []
+Post rule: []
+id: 77.1_2
+Test focus: Prohibited public offers on the Floor
+Transaction method: Floor trading
+Transaction type: Securities trading
+Prohibited activity: Offering to buy or sell securities "at the close"
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Making a public offer
+Result: Unsuccessful (Prohibited activity)
+Prerequisite rule: []
+Post rule: []
+id: 77.1_3
+Test focus: Prohibited public offers on the Floor
+Transaction method: Floor trading
+Transaction type: Securities trading
+Prohibited activity: Offering to buy or sell dividends
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Making a public offer
+Result: Unsuccessful (Prohibited activity)
+Prerequisite rule: []
+Post rule: []
+id: 77.1_4
+Test focus: Prohibited public offers on the Floor
+Transaction method: Floor trading
+Transaction type: Securities trading
+Prohibited activity: Betting upon the course of the market
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Making a public offer
+Result: Unsuccessful (Prohibited activity)
+Prerequisite rule: []
+Post rule: []
+id: 77.1_5
+Test focus: Prohibited public offers on the Floor
+Transaction method: Floor trading
+Transaction type: Securities trading
+Prohibited activity: Offering to buy or sell privileges to receive or deliver securities
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Making a public offer
+Result: Unsuccessful (Prohibited activity)
+Prerequisite rule: []
+Post rule: []
+id: 77.1_6
+Test focus: Permitted public offers on the Floor
+Transaction method: Floor trading
+Transaction type: Securities trading
+Permitted activity: Offering to buy or sell securities at the current market price
+Trading market: NYSE
+Trading direction: Bid/Offer
+Operation: Making a public offer
+Result: Successful (Permitted activity)
+Prerequisite rule: []
+Post rule: []

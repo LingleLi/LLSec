@@ -1,0 +1,393 @@
+Q
+Now please play the role of a financial testing expert, engaged in testing financial business rules. You are good at generating requirement specifications from business rules.
+For example, for the input rule: "3.3.4 The declared quantity of bond general pledge repo should be 1000 yuan face value or its integer multiple",
+The corresponding output requirement specification is:
+id: 3.3.4_1
+Test focus: quantity
+Transaction method: Negotiated transaction
+Transaction type: general pledge repurchase of bonds
+Quantity: 1000 yuan face value or integer multiples thereof
+Trading market: Shenzhen Stock Exchange
+Trading direction: Sell
+Operation: Declaration
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+
+id: 3.3.4_2
+Test focus: quantity
+Transaction method: Negotiated transaction
+Transaction type: general pledge repurchase of bonds
+Quantity: Non 1000 yuan denomination or integer multiples thereof
+Trading market: Shenzhen Stock Exchange
+Trading direction: Sell
+Operation: Declaration
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+
+Next, I will provide you with some business rules related to the financial field. Please follow the format in the example and write corresponding requirement specifications (including counterexamples) for each rule that needs to be tested. A requirement specification contains a series of rules with sequential dependencies. If a rule has a sequential relationship with other rules, please write the ID of its predecessor or successor rule in the corresponding requirement specification.
+1. Based on your domain knowledge, extract keywords and test points from the rules. If the rule description is relatively brief, you need to supplement the test points that are not mentioned. All requirement specifications must include four testing points: trading market, trading variety, trading method, and trading direction.
+2. The generation of requirement specifications should be as detailed and comprehensive as possible. It should include both successful use cases that satisfy constraints and generate unsuccessful use cases.
+3. Each requirement specification needs to have a result, which is success or failure.
+
+A
+Sure, please go ahead and provide me with the business rules related to the financial field that you would like me to create corresponding requirement specifications for.
+
+
+
+Q
+New York Stock Exchange Equities Trading Rules
+
+7.1 Except as may be otherwise determined by the Board of Directors as to particular days, the Exchange shall be open for the transaction of business on every business day. The hours at which trading sessions shall open and close shall be during such hours as may be specified by Exchange rule or established by the Board of Directors.
+
+A
+Based on the provided rule related to the New York Stock Exchange Equities Trading, here are the corresponding requirement specifications:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.1_1  
+**Test Focus:** Trading hours  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Operation:** Opening and closing of trading sessions  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.1_2  
+**Test Focus:** Trading hours  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Operation:** Opening and closing of trading sessions  
+**Result:** Unsuccessful  
+**Prerequisite Rule:** 7.1_1
+
+---
+
+These specifications outline the testing scenarios for the opening and closing of trading sessions on the New York Stock Exchange, ensuring that the exchange is open for business on every business day within specified hours as per the Exchange rule or directives of the Board of Directors.
+
+
+Q
+7.2 The Exchange will not be open for business on New Year's Day, Martin Luther King Jr. Day, Presidents' Day, Good Friday, Memorial Day, Juneteenth National Independence Day, Independence Day, Labor Day, Thanksgiving Day and Christmas Day.
+
+A
+Here are the corresponding requirement specifications based on the provided rule related to the New York Stock Exchange Equities Trading:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.2_1  
+**Test Focus:** Trading schedule  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Special Dates:** New Year's Day, Martin Luther King Jr. Day, Presidents' Day, Good Friday, Memorial Day, Juneteenth National Independence Day, Independence Day, Labor Day, Thanksgiving Day, Christmas Day  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.2_2  
+**Test Focus:** Trading schedule  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Special Dates:** Other than specified holidays  
+**Result:** Unsuccessful  
+**Prerequisite Rule:** 7.2_1
+
+---
+
+These specifications define the trading schedule for the New York Stock Exchange, indicating the days when the exchange will not be open for business, including specific holidays. Testing scenarios ensure that the exchange remains closed on these specified dates as per the rule.
+
+
+Q
+7.5 The unit of trading in stocks is 1 share.
+
+A
+Here are the corresponding requirement specifications based on the provided rule regarding the unit of trading in stocks on the New York Stock Exchange:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.5_1  
+**Test Focus:** Unit of trading  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Unit of Trading:** 1 share  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.5_2  
+**Test Focus:** Unit of trading  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Unit of Trading:** Non-1 share denomination  
+**Result:** Unsuccessful  
+**Prerequisite Rule:** 7.5_1
+
+---
+
+These specifications outline the testing scenarios for the unit of trading in stocks on the New York Stock Exchange, ensuring that the standard unit of trading is 1 share and validating the behavior for non-standard share denominations.
+
+
+Q
+7.6 The minimum price variation ("MPV") for quoting and entry of orders in securities traded on the Exchange is $0.01, with the exception of securities that are priced less than $1.00 for which the MPV for quoting and entry of orders is $0.0001.
+
+A
+Based on the provided rule regarding the minimum price variation for quoting and entry of orders in securities traded on the New York Stock Exchange, here are the corresponding requirement specifications:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.6_1  
+**Test Focus:** Minimum price variation  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Price Range:** Greater than or equal to $1.00  
+**MPV for Quoting and Order Entry:** $0.01  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.6_2  
+**Test Focus:** Minimum price variation  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Price Range:** Less than $1.00  
+**MPV for Quoting and Order Entry:** $0.0001  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.6_3  
+**Test Focus:** Minimum price variation  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Price Range:** Any price  
+**MPV for Quoting and Order Entry:** Non-compliant with specified ranges  
+**Result:** Unsuccessful  
+**Prerequisite Rule:** 7.6_1, 7.6_2
+
+---
+
+These specifications cover the testing scenarios for the minimum price variation requirements for quoting and entry of orders in securities traded on the New York Stock Exchange, ensuring compliance with the specified MPV based on the price range of the securities.
+
+
+Q
+7.8 Bids and offers will be considered to be "regular way".
+
+A
+Here are the corresponding requirement specifications based on the rule regarding bids and offers being considered "regular way" on the New York Stock Exchange:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.8_1  
+**Test Focus:** Bids and offers  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Consideration:** Regular way  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.8_2  
+**Test Focus:** Bids and offers  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** Equities  
+**Trading Market:** New York Stock Exchange  
+**Trading Direction:** Buy/Sell  
+**Consideration:** Non-regular way  
+**Result:** Unsuccessful  
+**Prerequisite Rule:** 7.8_1
+
+---
+
+These specifications outline the testing scenarios for bids and offers being considered "regular way" on the New York Stock Exchange, ensuring that transactions are processed in the standard manner to meet the exchange's requirements.
+
+
+Q
+7.11 The Exchange may declare a Trading Pause for a NMS Stock listed on the Exchange when (i) the National Best Bid (Offer) is below (above) the Lower (Upper) Price Band and the NMS Stock is not in a Limit State; and (ii) trading in that NMS Stock deviates from normal trading characteristics.
+
+A
+Here are the refined requirement specifications based on the provided rule regarding the conditions for declaring a Trading Pause for NMS Stocks listed on the New York Stock Exchange:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.11_1  
+**Test Focus:** Trading Pause  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** NMS Stocks  
+**Trading Market:** New York Stock Exchange  
+**Conditions for Pause:**  
+- National Best Bid (Offer) below (above) Lower (Upper) Price Band and NMS Stock not in Limit State  
+- Trading deviates from normal characteristics  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.11_2  
+**Test Focus:** Trading Pause  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** NMS Stocks  
+**Trading Market:** New York Stock Exchange  
+**Conditions for Pause:**  
+- National Best Bid (Offer) within Price Bands or NMS Stock in Limit State  
+**Result:** Unsuccessful  
+**Prerequisite Rule:** 7.11_1
+
+---
+
+These detailed specifications outline the testing scenarios for the conditions under which a Trading Pause may be declared for NMS Stocks listed on the New York Stock Exchange, ensuring that the pause is implemented when specific criteria are met as per the rule.
+
+Q
+7.12.1 The Exchange shall halt trading in all stocks and shall not reopen for the time periods specified in this Rule if there is a Level 1, 2, or 3 Market Decline.
+
+A
+Here are the refined requirement specifications based on the provided rule regarding the trading halts in all stocks on the New York Stock Exchange due to Level 1, 2, or 3 Market Declines:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.12.1_1  
+**Test Focus:** Trading halt  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** All stocks  
+**Trading Market:** New York Stock Exchange  
+**Market Decline Levels:** 1, 2, or 3  
+**Action:** Halt trading for specified time periods  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.12.1_2  
+**Test Focus:** Trading halt  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** All stocks  
+**Trading Market:** New York Stock Exchange  
+**Market Decline Levels:** Not Level 1, 2, or 3  
+**Action:** No trading halt  
+**Result:** Unsuccessful  
+**Prerequisite Rule:** 7.12.1_1
+
+---
+
+These detailed specifications delineate the testing scenarios for trading halts in all stocks on the New York Stock Exchange based on Level 1, 2, or 3 Market Declines, ensuring that trading is appropriately halted in accordance with the specified market decline levels.
+
+
+Q
+7.12.2 For purposes of this Rule, a Market Decline means a decline in price of the S&P 500 Index between 9:30 a.m. and 4:00 p.m. on a trading day as compared to the closing price of the S&P 500 Index for the immediately preceding trading day. The Level 1, Level 2, and Level 3 Market Declines that will be applicable for the trading day will be publicly disseminated before 9:30 a.m.
+
+A
+Here are the refined requirement specifications based on the provided rule regarding Market Declines and the dissemination of applicable Level 1, Level 2, and Level 3 Market Declines before 9:30 a.m. on the New York Stock Exchange:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.12.2_1  
+**Test Focus:** Market Declines  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** All stocks  
+**Trading Market:** New York Stock Exchange  
+**Definition:** Market Decline based on S&P 500 Index  
+**Comparison Timeframe:** 9:30 a.m. to 4:00 p.m.  
+**Public Dissemination:** Level 1, 2, and 3 Market Declines before 9:30 a.m.  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.12.2_2  
+**Test Focus:** Market Declines  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** All stocks  
+**Trading Market:** New York Stock Exchange  
+**Definition:** Market Decline based on S&P 500 Index  
+**Comparison Timeframe:** Outside 9:30 a.m. to 4:00 p.m.  
+**Result:** Unsuccessful  
+
+---
+
+These specifications outline the testing scenarios for Market Declines based on the S&P 500 Index and the dissemination of applicable Level 1, Level 2, and Level 3 Market Declines before 9:30 a.m., ensuring compliance with the specified rules on the New York Stock Exchange.
+
+
+Q
+7.12.3 A “Level 1 Market Decline” means a Market Decline of 7%. A “Level 2 Market Decline” means a Market Decline of 13%. A “Level 3 Market Decline” means a Market Decline of 20%.
+
+A
+Here are the refined requirement specifications based on the provided definitions for Level 1, Level 2, and Level 3 Market Declines on the New York Stock Exchange:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.12.3_1  
+**Test Focus:** Market Decline Levels  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** All stocks  
+**Trading Market:** New York Stock Exchange  
+**Level Definitions:**  
+- Level 1 Market Decline: 7%  
+- Level 2 Market Decline: 13%  
+- Level 3 Market Decline: 20%  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.12.3_2  
+**Test Focus:** Market Decline Levels  
+**Transaction Method:** Exchange trading  
+**Trading Variety:** All stocks  
+**Trading Market:** New York Stock Exchange  
+**Level Definitions:**  
+- Level 1 Market Decline: Not 7%  
+- Level 2 Market Decline: Not 13%  
+- Level 3 Market Decline: Not 20%  
+**Result:** Unsuccessful  
+**Prerequisite Rule:** 7.12.3_1
+
+---
+
+These specifications outline the testing scenarios for Level 1, Level 2, and Level 3 Market Declines as defined by the specified percentages on the New York Stock Exchange, ensuring that the correct criteria are met for each level of market decline.
+
+
+Q
+7.13 The Chair of the Board or the CEO, or the officer designee of the Chair or the CEO, shall have the power to suspend trading in any and all securities trading on the Exchange whenever in his or her opinion such suspension would be in the public interest. No such action shall continue longer than a period of two days, or as soon thereafter as a quorum of Directors can be assembled, unless the Board approves the continuation of such suspension.
+
+A
+Based on the provided rule regarding the power to suspend trading in securities on the Exchange, below are the refined requirement specifications:
+
+### Requirement Specification:
+  
+**Rule ID:** 7.13_1  
+**Authorized Personnel:** Chair of the Board, CEO, or officer designee  
+**Action:** Suspend trading in all securities on the Exchange  
+**Criteria for Suspension:** Public interest  
+**Duration:**  
+- Maximum initial duration: 2 days  
+- Approval by the Board for continuation beyond 2 days  
+**Result:** Successful  
+
+---
+
+**Rule ID:** 7.13_2  
+**Authorized Personnel:** Chair of the Board, CEO, or officer designee  
+**Action:** Attempt to suspend trading in all securities on the Exchange  
+**Criteria for Suspension:** Not in the public interest  
+**Result:** Unsuccessful  
+
+---
+
+These specifications outline the testing scenarios for the suspension of trading in securities on the Exchange by authorized personnel based on the criteria of public interest and the duration of the suspension as specified by the rule.
+

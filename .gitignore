@@ -27,3 +27,4 @@ train_rule_filtering_model/model/*
 train_rule_filtering_model/output/*
 !train_rule_filtering_model/output/README.md
 transfer/__pycache__/
+experiment/__pycache__/

@@ -134,10 +134,12 @@ def compute_accuracy(testcases, scenarios, f, without_knowledge=False):
 def compute_acc_ours(our_dir, specification_dir, without_knowledge=False):
     num, accuracy = [], []
     for file in sorted(os.listdir(specification_dir)):
-        # if "data4" not in file:
+        # if "data5" not in file:
         #     continue
         if "exp1" in our_dir:
             f = open(f"exp1_data/log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
+        elif "exp4" in our_dir:
+            f = open(f"exp4_data/log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
         else:
             if without_knowledge:
                 f = open(f"exp2_data/log/ours_without_knowledge_{file.split('_')[0]}.log", "w", encoding="utf-8")
@@ -163,11 +165,11 @@ def compute_acc_llm(llm_dir, specification_dir):
     accuracy = {}
     for file in sorted(os.listdir(llm_dir)):
         if "test_scenario" in file:
-            # if "chatglm4" not in file or "data4" not in file:
-            #     continue
             llm = file.split("_")[0]
             if "exp1" in llm_dir:
                 f = open(f"exp1_data/log/{llm}_{file.split('_')[-1].split('.')[0]}.log", "w", encoding="utf-8")
+            elif "exp4" in llm_dir:
+                f = open(f"exp4_data/log/{llm}_{file.split('_')[-1].split('.')[0]}.log", "w", encoding="utf-8")
             else:
                 f = open(f"exp2_data/log/{llm}_{file.split('_')[-1].split('.')[0]}.log", "w", encoding="utf-8")
             testcase_file = llm_dir + "/" + file

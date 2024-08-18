@@ -1,0 +1,328 @@
+Q
+Now please play the role of a financial testing expert, engaged in testing financial business rules. You are good at generating requirement specifications from business rules.
+For example, for the input rule: "3.3.4 The declared quantity of bond general pledge repo should be 1000 yuan face value or its integer multiple",
+The corresponding output requirement specification is:
+id: 3.3.4_1
+Test focus: quantity
+Transaction method: Negotiated transaction
+Transaction type: general pledge repurchase of bonds
+Quantity: 1000 yuan face value or integer multiples thereof
+Trading market: Shenzhen Stock Exchange
+Trading direction: Sell
+Operation: Declaration
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+
+id: 3.3.4_2
+Test focus: quantity
+Transaction method: Negotiated transaction
+Transaction type: general pledge repurchase of bonds
+Quantity: Non 1000 yuan denomination or integer multiples thereof
+Trading market: Shenzhen Stock Exchange
+Trading direction: Sell
+Operation: Declaration
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+
+Next, I will provide you with some business rules related to the financial field. Please follow the format in the example and write corresponding requirement specifications (including counterexamples) for each rule that needs to be tested. A requirement specification contains a series of rules with sequential dependencies. If a rule has a sequential relationship with other rules, please write the ID of its predecessor or successor rule in the corresponding requirement specification.
+1. Based on your domain knowledge, extract keywords and test points from the rules. If the rule description is relatively brief, you need to supplement the test points that are not mentioned. All requirement specifications must include four testing points: trading market, trading variety, trading method, and trading direction.
+2. The generation of requirement specifications should be as detailed and comprehensive as possible. It should include both successful use cases that satisfy constraints and generate unsuccessful use cases.
+3. Each requirement specification needs to have a result, which is success or failure.
+
+A
+Sure, please provide me with the business rules related to the financial field, and I will help you generate the corresponding requirement specifications following the format you provided.
+
+
+Q
+New York Stock Exchange Dealings and Settlements Rules
+
+53.1 Only securities admitted to dealings on an "issued," "when issued," or "when distributed" basis shall be dealt in upon the Exchange.
+
+A
+**Requirement Specification:**
+
+**Rule ID: 53.1_1**
+- **Test Focus:** Securities Admission
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** Admitted to dealings
+- **Trading Direction:** Buy/Sell
+- **Result:** Successful
+- **Prerequisite Rule:** None
+- **Post Rule:** None
+
+**Rule ID: 53.1_2**
+- **Test Focus:** Securities Admission
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** Not Admitted to dealings
+- **Trading Direction:** Buy/Sell
+- **Result:** Unsuccessful
+- **Prerequisite Rule:** None
+- **Post Rule:** None
+
+This specification ensures that only securities admitted to dealings on an "issued," "when issued," or "when distributed" basis can be traded on the New York Stock Exchange. The test cases cover both successful dealings with admitted securities and unsuccessful dealings with non-admitted securities.
+
+
+Q
+63.1 Bids and offers in securities admitted to dealings on a "when issued" basis shall be made only "when issued," i.e., for delivery when issued as determined by the Exchange.
+
+A
+**Requirement Specification:**
+
+**Rule ID: 63.1_1**
+- **Test Focus:** Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** "When Issued" Basis
+- **Trading Direction:** Buy/Sell
+- **Result:** Successful
+- **Prerequisite Rule:** Rule 53.1_1
+- **Post Rule:** None
+
+**Rule ID: 63.1_2**
+- **Test Focus:** Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** "When Issued" Basis
+- **Trading Direction:** Buy/Sell
+- **Result:** Unsuccessful
+- **Prerequisite Rule:** Rule 53.1_1
+- **Post Rule:** None
+
+This specification ensures that bids and offers in securities admitted to dealings on a "when issued" basis should only be made for delivery when issued as determined by the Exchange. The test cases cover both successful bids and offers made in accordance with the rule and unsuccessful bids and offers that don't comply with the specified delivery terms.
+
+
+Q
+63.2 Bids and offers in securities admitted to dealings on a "when distributed" basis shall be made only "when distributed," i.e., for delivery when distributed as determined by the Exchange.
+
+A
+**Requirement Specification:**
+
+**Rule ID: 63.2_1**
+- **Test Focus:** Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** "When Distributed" Basis
+- **Trading Direction:** Buy/Sell
+- **Result:** Successful
+- **Prerequisite Rule:** Rule 53.1_1
+- **Post Rule:** None
+
+**Rule ID: 63.2_2**
+- **Test Focus:** Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** "When Distributed" Basis
+- **Trading Direction:** Buy/Sell
+- **Result:** Unsuccessful
+- **Prerequisite Rule:** Rule 53.1_1
+- **Post Rule:** None
+
+This specification ensures that bids and offers in securities admitted to dealings on a "when distributed" basis should only be made for delivery when distributed as determined by the Exchange. The test cases cover both successful bids and offers complying with the rule and unsuccessful bids and offers that do not adhere to the specified delivery terms.
+
+
+Q
+66.1 Bids and offers in securities of the United States Government admitted to dealings on an "issued" basis shall be made only as the "regular way."
+
+A
+**Requirement Specification:**
+
+**Rule ID: 66.1_1**
+- **Test Focus:** Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** United States Government Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** "Issued" Basis
+- **Trading Direction:** Buy/Sell
+- **Result:** Successful
+- **Prerequisite Rule:** Rule 53.1_1
+- **Post Rule:** None
+
+**Rule ID: 66.1_2**
+- **Test Focus:** Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** United States Government Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** "Issued" Basis
+- **Trading Direction:** Buy/Sell
+- **Result:** Unsuccessful
+- **Prerequisite Rule:** Rule 53.1_1
+- **Post Rule:** None
+
+This specification ensures that bids and offers in securities of the United States Government admitted to dealings on an "issued" basis should only be made as the "regular way." The test cases cover both successful bids and offers following the "regular way" and unsuccessful bids and offers that deviate from this standard.
+
+
+Q
+71.1 All verbal bids made and accepted, and all verbal offers made and accepted, in accordance with Exchange Rules shall be binding.
+
+A
+**Requirement Specification:**
+
+**Rule ID: 71.1_1**
+- **Test Focus:** Verbal Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** Verbal Bids and Offers
+- **Trading Direction:** Buy/Sell
+- **Result:** Successful
+- **Prerequisite Rule:** Rule 53.1_1
+- **Post Rule:** None
+
+**Rule ID: 71.1_2**
+- **Test Focus:** Verbal Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** Verbal Bids and Offers
+- **Trading Direction:** Buy/Sell
+- **Result:** Unsuccessful
+- **Prerequisite Rule:** Rule 53.1_1
+- **Post Rule:** None
+
+This specification ensures that all verbal bids made and accepted, and all verbal offers made and accepted according to Exchange Rules, are binding. The test cases cover both successful scenarios where verbal bids and offers are binding and unsuccessful cases where they are not considered binding as per the rules.
+
+
+Q
+71.2 Any verbal bid that is made at the same or higher price of the prevailing offer shall result in a transaction at the offer price in an amount equal to the lesser of the bid or offer. The same principle shall apply when a verbal offer is made at the same or lower price as the bid.
+
+A
+**Requirement Specification:**
+
+**Rule ID: 71.2_1**
+- **Test Focus:** Verbal Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** Verbal Bids and Offers
+- **Trading Direction:** Buy/Sell
+- **Result:** Successful
+- **Prerequisite Rule:** Rule 53.1_1, Rule 71.1_1
+- **Post Rule:** None
+
+**Rule ID: 71.2_2**
+- **Test Focus:** Verbal Bids and Offers
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Trading Method:** Verbal Bids and Offers
+- **Trading Direction:** Buy/Sell
+- **Result:** Unsuccessful
+- **Prerequisite Rule:** Rule 53.1_1, Rule 71.1_1
+- **Post Rule:** None
+
+This specification ensures that any verbal bid made at the same or higher price of the prevailing offer results in a transaction at the offer price in an amount equal to the lesser of the bid or offer. The same principle applies when a verbal offer is made at the same or lower price as the bid. Test cases cover both successful transactions following the specified pricing principles and unsuccessful cases where the pricing principles are not followed.
+
+
+Q
+74.1 A claim by a member who states that he had on the Floor a prior or better bid or offer shall not be sustained if the bid or offer was not made with the publicity and frequency necessary to make the existence of such bid or offer generally known at the time of the transaction.
+
+A
+**Requirement Specification:**
+
+**Rule ID: 74.1_1**
+- **Test Focus:** Member Claims
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Claim Type:** Prior or Better Bid/Offer
+- **Claim Validity Condition:** Publicity and Frequency of Bid/Offer
+- **Result:** Sustained
+- **Prerequisite Rule:** Rule 53.1_1, Rule 71.1_1
+- **Post Rule:** None
+
+**Rule ID: 74.1_2**
+- **Test Focus:** Member Claims
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Claim Type:** Prior or Better Bid/Offer
+- **Claim Validity Condition:** Publicity and Frequency of Bid/Offer
+- **Result:** Not Sustained
+- **Prerequisite Rule:** Rule 53.1_1, Rule 71.1_1
+- **Post Rule:** None
+
+This specification ensures that a claim by a member stating that they had a prior or better bid or offer on the floor will not be sustained if the bid or offer was not made with the necessary publicity and frequency to make its existence generally known at the time of the transaction. Test cases cover both sustained claims where the bid or offer was publicized adequately and unsustained claims where the bid or offer was not widely known at the time of the transaction.
+
+
+Q
+76.1 When a member has an order to buy and an order to sell the same security, he or she shall offer such security at a price which is higher than his or her bid by the minimum variation permitted in such security before making a transaction with himself or herself. All such bids and offers shall be clearly announced to the trading Crowd before the member may proceed with the proposed "cross" transaction.
+
+A
+**Requirement Specification:**
+
+**Rule ID: 76.1_1**
+- **Test Focus:** Member Orders
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Order Type:** Buy and Sell Orders for the Same Security
+- **Transaction Condition:** Price Difference Requirement
+- **Minimum Variation:** Permitted in the Security
+- **Announcement Requirement:** Clear Announcement to Trading Crowd
+- **Result:** Transaction Allowed
+- **Prerequisite Rule:** Rule 53.1_1, Rule 71.1_1
+- **Post Rule:** None
+
+**Rule ID: 76.1_2**
+- **Test Focus:** Member Orders
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Order Type:** Buy and Sell Orders for the Same Security
+- **Transaction Condition:** Price Difference Requirement
+- **Minimum Variation:** Permitted in the Security
+- **Announcement Requirement:** Clear Announcement to Trading Crowd
+- **Result:** Transaction Not Allowed
+- **Prerequisite Rule:** Rule 53.1_1, Rule 71.1_1
+- **Post Rule:** None
+
+This specification ensures that when a member has both buy and sell orders for the same security, they must offer the security at a price higher than their bid by the minimum permitted variation before engaging in a transaction with themselves. Additionally, all bids and offers must be clearly announced to the trading crowd before proceeding with the "cross" transaction. Test cases cover scenarios where transactions are allowed when the conditions are met and scenarios where transactions are not permitted due to failure to meet the specified requirements.
+
+
+Q
+77.1 No member shall offer publicly on the Floor: (1) To buy or sell securities "on stop" above or below the market; (2) to buy or sell securities "at the close"; (3) to buy or sell dividends; (4) to bet upon the course of the market; or (5) to buy or sell privileges to receive or deliver securities.
+
+A
+**Requirement Specification:**
+
+**Rule ID: 77.1_1**
+- **Test Focus:** Member Offers on the Floor
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Prohibited Offers:**
+  1. To Buy or Sell Securities "On Stop" Above or Below the Market
+  2. To Buy or Sell Securities "At the Close"
+  3. To Buy or Sell Dividends
+  4. To Bet Upon the Course of the Market
+  5. To Buy or Sell Privileges to Receive or Deliver Securities
+- **Result:** Offer Prohibited
+- **Prerequisite Rule:** Rule 53.1_1, Rule 71.1_1
+- **Post Rule:** None
+
+**Rule ID: 77.1_2**
+- **Test Focus:** Member Offers on the Floor
+- **Transaction Method:** Exchange Dealings
+- **Trading Variety:** All Securities
+- **Trading Market:** New York Stock Exchange
+- **Prohibited Offers:**
+  1. To Buy or Sell Securities "On Stop" Above or Below the Market
+  2. To Buy or Sell Securities "At the Close"
+  3. To Buy or Sell Dividends
+  4. To Bet Upon the Course of the Market
+  5. To Buy or Sell Privileges to Receive or Deliver Securities
+- **Result:** Offer Allowed
+- **Prerequisite Rule:** Rule 53.1_1, Rule 71.1_1
+- **Post Rule:** None
+
+This specification states that no member shall publicly offer on the floor to buy or sell securities "on stop" above or below the market, to buy or sell securities "at the close," to buy or sell dividends, to bet upon the course of the market, or to buy or sell privileges to receive or deliver securities. Test cases cover scenarios where offers are prohibited according to the rule and scenarios where offers are allowed.

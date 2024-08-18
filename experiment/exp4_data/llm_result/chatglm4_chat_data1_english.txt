@@ -1,0 +1,863 @@
+Q
+Now please play the role of a financial testing expert, engaged in testing financial business rules. You are good at generating requirement specifications from business rules.
+For example, for the input rule: "3.3.4 The declared quantity of bond general pledge repo should be 1000 yuan face value or its integer multiple",
+The corresponding output requirement specification is:
+id: 3.3.4_1
+Test focus: quantity
+Transaction method: Negotiated transaction
+Transaction type: general pledge repurchase of bonds
+Quantity: 1000 yuan face value or integer multiples thereof
+Trading market: Shenzhen Stock Exchange
+Trading direction: Sell
+Operation: Declaration
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+
+id: 3.3.4_2
+Test focus: quantity
+Transaction method: Negotiated transaction
+Transaction type: general pledge repurchase of bonds
+Quantity: Non 1000 yuan denomination or integer multiples thereof
+Trading market: Shenzhen Stock Exchange
+Trading direction: Sell
+Operation: Declaration
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+
+Next, I will provide you with some business rules related to the financial field. Please follow the format in the example and write corresponding requirement specifications (including counterexamples) for each rule that needs to be tested. A requirement specification contains a series of rules with sequential dependencies. If a rule has a sequential relationship with other rules, please write the ID of its predecessor or successor rule in the corresponding requirement specification.
+1. Based on your domain knowledge, extract keywords and test points from the rules. If the rule description is relatively brief, you need to supplement the test points that are not mentioned. All requirement specifications must include four testing points: trading market, trading variety, trading method, and trading direction.
+2. The generation of requirement specifications should be as detailed and comprehensive as possible. It should include both successful use cases that satisfy constraints and generate unsuccessful use cases.
+3. Each requirement specification needs to have a result, which is success or failure.
+
+A
+
+id: 1.1.1
+Business Rule: "1.1.1 The minimum transaction amount for online stock trading is 100 shares."
+Requirement Specification:
+id: 1.1.1_1
+Test focus: Minimum transaction amount
+Transaction method: Online trading
+Transaction type: Stock trading
+Quantity: 100 shares
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Buy
+Operation: Transaction
+Result: Successful
+Prerequisite rule: []
+Post rule: []
+id: 1.1.1_2
+Test focus: Minimum transaction amount
+Transaction method: Online trading
+Transaction type: Stock trading
+Quantity: 99 shares
+Trading market: NYSE
+Trading direction: Buy
+Operation: Transaction
+Result: Unsuccessful
+Prerequisite rule: []
+Post rule: []
+id: 1.1.2
+Business Rule: "1.1.2 The settlement cycle for futures contracts is T+1."
+Requirement Specification:
+id: 1.1.2_1
+Test focus: Settlement cycle
+Transaction method: Futures trading
+Transaction type: Futures contract
+Quantity: 1 contract (standard quantity)
+Trading market: Chicago Mercantile Exchange (CME)
+Trading direction: Sell
+Operation: Settlement
+Result: Successful (settles on T+1)
+Prerequisite rule: []
+Post rule: []
+id: 1.1.2_2
+Test focus: Settlement cycle
+Transaction method: Futures trading
+Transaction type: Futures contract
+Quantity: 1 contract (standard quantity)
+Trading market: CME
+Trading direction: Sell
+Operation: Settlement
+Result: Unsuccessful (attempt to settle on T+0)
+Prerequisite rule: []
+Post rule: []
+id: 2.2.3
+Business Rule: "2.2.3 The margin requirement for gold futures is 5% of the total contract value."
+Requirement Specification:
+id: 2.2.3_1
+Test focus: Margin requirement
+Transaction method: Futures trading
+Transaction type: Gold futures
+Quantity: 1 contract (standard quantity)
+Trading market: COMEX
+Trading direction: Buy
+Operation: Margin calculation
+Result: Successful (5% margin)
+Prerequisite rule: []
+Post rule: []
+id: 2.2.3_2
+Test focus: Margin requirement
+Transaction method: Futures trading
+Transaction type: Gold futures
+Quantity: 1 contract (standard quantity)
+Trading market: COMEX
+Trading direction: Buy
+Operation: Margin calculation
+Result: Unsuccessful (less than 5% margin)
+Prerequisite rule: []
+Post rule: []
+id: 3.3.4
+Business Rule: "3.3.4 Interest rates for interbank lending should not exceed the PBOC's benchmark rate by more than 10%."
+Requirement Specification:
+id: 3.3.4_1
+Test focus: Interest rate
+Transaction method: Interbank lending
+Transaction type: Loan
+Quantity: 10 million yuan
+Trading market: China Interbank Bond Market
+Trading direction: Lend
+Operation: Rate setting
+Result: Successful (rate within 10% of PBOC's benchmark)
+Prerequisite rule: []
+Post rule: []
+id: 3.3.4_2
+Test focus: Interest rate
+Transaction method: Interbank lending
+Transaction type: Loan
+Quantity: 10 million yuan
+Trading market: China Interbank Bond Market
+Trading direction: Lend
+Operation: Rate setting
+Result: Unsuccessful (rate exceeds 10% of PBOC's benchmark)
+Prerequisite rule: []
+Post rule: []
+
+
+
+Q
+New York Stock Exchange Equities Trading Rules
+
+7.1 Except as may be otherwise determined by the Board of Directors as to particular days, the Exchange shall be open for the transaction of business on every business day. The hours at which trading sessions shall open and close shall be during such hours as may be specified by Exchange rule or established by the Board of Directors.
+
+A
+Requirement Specification:
+id: 7.1_1
+Test focus: Trading session opening and closing times
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to session times)
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: N/A (not applicable to session times)
+Operation: Trading session management
+Result: Successful (Exchange opens and closes at specified times)
+Prerequisite rule: []
+Post rule: []
+id: 7.1_2
+Test focus: Trading session opening and closing times
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to session times)
+Trading market: NYSE
+Trading direction: N/A (not applicable to session times)
+Operation: Trading session management
+Result: Unsuccessful (Exchange fails to open/close at specified times)
+Prerequisite rule: []
+Post rule: []
+id: 7.1_3
+Test focus: Exception for Board of Directors' determination
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to Board's determination)
+Trading market: NYSE
+Trading direction: N/A (not applicable to Board's determination)
+Operation: Trading session schedule adjustment
+Result: Successful (Board determines exceptional days, and Exchange adjusts accordingly)
+Prerequisite rule: []
+Post rule: []
+id: 7.1_4
+Test focus: Exception for Board of Directors' determination
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to Board's determination)
+Trading market: NYSE
+Trading direction: N/A (not applicable to Board's determination)
+Operation: Trading session schedule adjustment
+Result: Unsuccessful (Exchange fails to adjust for Board's exceptional day determination)
+Prerequisite rule: []
+Post rule: []
+
+
+Q
+7.2 The Exchange will not be open for business on New Year's Day, Martin Luther King Jr. Day, Presidents' Day, Good Friday, Memorial Day, Juneteenth National Independence Day, Independence Day, Labor Day, Thanksgiving Day and Christmas Day.
+
+A
+Requirement Specification:
+id: 7.2_1
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on New Year's Day)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_2
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on Martin Luther King Jr. Day)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_3
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on Presidents' Day)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_4
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on Good Friday)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_5
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on Memorial Day)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_6
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on Juneteenth National Independence Day)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_7
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on Independence Day)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_8
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on Labor Day)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_9
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on Thanksgiving Day)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_10
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Successful (Exchange is closed on Christmas Day)
+Prerequisite rule: []
+Post rule: []
+id: 7.2_11
+Test focus: Holiday closure
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to holiday closures)
+Trading market: NYSE
+Trading direction: N/A (not applicable to holiday closures)
+Operation: Trading session schedule
+Result: Unsuccessful (Exchange is incorrectly open on one of the specified holidays)
+Prerequisite rule: []
+Post rule: []
+
+
+Q
+7.5 The unit of trading in stocks is 1 share.
+
+A
+Requirement Specification:
+id: 7.5_1
+Test focus: Unit of trading
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: 1 share
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Buy
+Operation: Order placement
+Result: Successful (Order is placed for 1 share)
+Prerequisite rule: []
+Post rule: []
+id: 7.5_2
+Test focus: Unit of trading
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: Fractional share (e.g., 0.5 shares)
+Trading market: NYSE
+Trading direction: Buy
+Operation: Order placement
+Result: Unsuccessful (Order cannot be placed for fractional shares)
+Prerequisite rule: []
+Post rule: []
+id: 7.5_3
+Test focus: Unit of trading
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: Multiple shares (e.g., 100 shares)
+Trading market: NYSE
+Trading direction: Sell
+Operation: Order placement
+Result: Successful (Order is placed for multiple shares)
+Prerequisite rule: []
+Post rule: []
+id: 7.5_4
+Test focus: Unit of trading
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: 0 shares (attempt to trade with no shares)
+Trading market: NYSE
+Trading direction: Sell
+Operation: Order placement
+Result: Unsuccessful (Order cannot be placed with 0 shares)
+Prerequisite rule: []
+Post rule: []
+
+
+Q
+7.6 The minimum price variation ("MPV") for quoting and entry of orders in securities traded on the Exchange is $0.01, with the exception of securities that are priced less than $1.00 for which the MPV for quoting and entry of orders is $0.0001.
+
+A
+Requirement Specification:
+id: 7.6_1
+Test focus: Minimum Price Variation (MPV) for securities over $1.00
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to price variation)
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: N/A (not applicable to price variation)
+Operation: Quoting and order entry
+Price: Over $1.00
+Result: Successful (MPV is $0.01)
+Prerequisite rule: []
+Post rule: []
+id: 7.6_2
+Test focus: Minimum Price Variation (MPV) for securities over $1.00
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to price variation)
+Trading market: NYSE
+Trading direction: N/A (not applicable to price variation)
+Operation: Quoting and order entry
+Price: Over $1.00
+Result: Unsuccessful (Attempt to quote or enter an order with a price variation less than $0.01)
+Prerequisite rule: []
+Post rule: []
+id: 7.6_3
+Test focus: Minimum Price Variation (MPV) for securities under $1.00
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to price variation)
+Trading market: NYSE
+Trading direction: N/A (not applicable to price variation)
+Operation: Quoting and order entry
+Price: Under $1.00
+Result: Successful (MPV is $0.0001)
+Prerequisite rule: []
+Post rule: []
+id: 7.6_4
+Test focus: Minimum Price Variation (MPV) for securities under $1.00
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to price variation)
+Trading market: NYSE
+Trading direction: N/A (not applicable to price variation)
+Operation: Quoting and order entry
+Price: Under $1.00
+Result: Unsuccessful (Attempt to quote or enter an order with a price variation less than $0.0001)
+Prerequisite rule: []
+Post rule: []
+id: 7.6_5
+Test focus: MPV exception for securities at exactly $1.00
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to price variation)
+Trading market: NYSE
+Trading direction: N/A (not applicable to price variation)
+Operation: Quoting and order entry
+Price: Exactly $1.00
+Result: Successful (MPV is $0.01, as it is the threshold for the exception)
+Prerequisite rule: []
+Post rule: []
+id: 7.6_6
+Test focus: MPV exception for securities at exactly $1.00
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to price variation)
+Trading market: NYSE
+Trading direction: N/A (not applicable to price variation)
+Operation: Quoting and order entry
+Price: Exactly $1.00
+Result: Unsuccessful (Attempt to use MPV of $0.0001, which is incorrect for this price level)
+Prerequisite rule: []
+Post rule: []
+
+
+Q
+7.8 Bids and offers will be considered to be "regular way".
+
+A
+Requirement Specification:
+id: 7.8_1
+Test focus: Regular way bids and offers
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to bid and offer classification)
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: Bid (Buy)
+Operation: Order classification
+Result: Successful (Bid is considered "regular way")
+Prerequisite rule: []
+Post rule: []
+id: 7.8_2
+Test focus: Regular way bids and offers
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to bid and offer classification)
+Trading market: NYSE
+Trading direction: Offer (Sell)
+Operation: Order classification
+Result: Successful (Offer is considered "regular way")
+Prerequisite rule: []
+Post rule: []
+id: 7.8_3
+Test focus: Regular way bids and offers
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to bid and offer classification)
+Trading market: NYSE
+Trading direction: Bid (Buy)
+Operation: Order classification
+Result: Unsuccessful (Bid is incorrectly classified as not "regular way")
+Prerequisite rule: []
+Post rule: []
+id: 7.8_4
+Test focus: Regular way bids and offers
+Transaction method: Equities trading
+Transaction type: Stock transactions
+Quantity: N/A (not applicable to bid and offer classification)
+Trading market: NYSE
+Trading direction: Offer (Sell)
+Operation: Order classification
+Result: Unsuccessful (Offer is incorrectly classified as not "regular way")
+Prerequisite rule: []
+Post rule: []
+Note: The term "regular way" typically refers to the standard settlement cycle for securities transactions, which is T+2 (trade date plus two business days). However, since the rule provided does not specify the details of what constitutes "regular way," the requirement specifications are focused on the classification of bids and offers as "regular way" without delving into the specifics of the settlement cycle. If additional details about "regular way" are provided, the test cases can be expanded to include those specifics.
+
+
+Q
+7.11 The Exchange may declare a Trading Pause for a NMS Stock listed on the Exchange when (i) the National Best Bid (Offer) is below (above) the Lower (Upper) Price Band and the NMS Stock is not in a Limit State; and (ii) trading in that NMS Stock deviates from normal trading characteristics.
+
+A
+Requirement Specification:
+id: 7.11_1
+Test focus: Trading Pause declaration due to National Best Bid below Lower Price Band
+Transaction method: Equities trading
+Transaction type: NMS Stock transactions
+Quantity: N/A (not applicable to trading pause conditions)
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: N/A (not applicable to trading pause conditions)
+Operation: Monitoring and declaration of trading pause
+Condition: National Best Bid is below Lower Price Band and NMS Stock is not in a Limit State
+Result: Successful (Trading Pause is declared)
+Prerequisite rule: []
+Post rule: []
+id: 7.11_2
+Test focus: Trading Pause declaration due to National Best Offer above Upper Price Band
+Transaction method: Equities trading
+Transaction type: NMS Stock transactions
+Quantity: N/A (not applicable to trading pause conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to trading pause conditions)
+Operation: Monitoring and declaration of trading pause
+Condition: National Best Offer is above Upper Price Band and NMS Stock is not in a Limit State
+Result: Successful (Trading Pause is declared)
+Prerequisite rule: []
+Post rule: []
+id: 7.11_3
+Test focus: No Trading Pause when NMS Stock is in a Limit State
+Transaction method: Equities trading
+Transaction type: NMS Stock transactions
+Quantity: N/A (not applicable to trading pause conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to trading pause conditions)
+Operation: Monitoring and declaration of trading pause
+Condition: National Best Bid (Offer) is below (above) the Lower (Upper) Price Band but NMS Stock is in a Limit State
+Result: Unsuccessful (Trading Pause is not declared)
+Prerequisite rule: []
+Post rule: []
+id: 7.11_4
+Test focus: Trading Pause due to deviation from normal trading characteristics
+Transaction method: Equities trading
+Transaction type: NMS Stock transactions
+Quantity: N/A (not applicable to trading pause conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to trading pause conditions)
+Operation: Monitoring and declaration of trading pause
+Condition: Trading in NMS Stock deviates from normal trading characteristics
+Result: Successful (Trading Pause is declared)
+Prerequisite rule: []
+Post rule: []
+id: 7.11_5
+Test focus: No Trading Pause when trading characteristics are normal
+Transaction method: Equities trading
+Transaction type: NMS Stock transactions
+Quantity: N/A (not applicable to trading pause conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to trading pause conditions)
+Operation: Monitoring and declaration of trading pause
+Condition: Trading in NMS Stock follows normal trading characteristics
+Result: Unsuccessful (Trading Pause is not declared)
+Prerequisite rule: []
+Post rule: []
+Note: The Lower and Upper Price Bands, as well as the definition of a Limit State, are not provided in the rule. These would need to be defined in the context of the NYSE's specific rules and procedures for the test cases to be fully executed. Additionally, the specifics of what constitutes a deviation from normal trading characteristics would need to be detailed to create more precise test cases.
+
+Q
+7.12.1 The Exchange shall halt trading in all stocks and shall not reopen for the time periods specified in this Rule if there is a Level 1, 2, or 3 Market Decline.
+
+A
+Requirement Specification:
+id: 7.12.1_1
+Test focus: Trading halt due to Level 1 Market Decline
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market monitoring and trading halt
+Condition: Level 1 Market Decline occurs
+Result: Successful (Trading is halted in all stocks)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.1_2
+Test focus: Trading halt due to Level 2 Market Decline
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market monitoring and trading halt
+Condition: Level 2 Market Decline occurs
+Result: Successful (Trading is halted in all stocks)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.1_3
+Test focus: Trading halt due to Level 3 Market Decline
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market monitoring and trading halt
+Condition: Level 3 Market Decline occurs
+Result: Successful (Trading is halted in all stocks)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.1_4
+Test focus: No trading halt for Level 1, 2, or 3 Market Decline without occurrence
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market monitoring and trading halt
+Condition: No Level 1, 2, or 3 Market Decline occurs
+Result: Unsuccessful (Trading halt is not triggered)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.1_5
+Test focus: Trading halt duration adherence
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market monitoring and trading halt duration
+Condition: Trading halt due to Level 1, 2, or 3 Market Decline
+Result: Successful (Trading does not reopen during specified time periods)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.1_6
+Test focus: Early reopening of trading after halt
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market monitoring and trading halt duration
+Condition: Attempt to reopen trading before the end of the specified time periods
+Result: Unsuccessful (Trading does not reopen early)
+Prerequisite rule: []
+Post rule: []
+Note: The specific criteria for what constitutes a Level 1, 2, or 3 Market Decline, as well as the specified time periods for the trading halt, are not provided in the rule. These details would need to be defined according to the NYSE's rules and procedures for the test cases to be fully executed.
+
+
+Q
+7.12.2 For purposes of this Rule, a Market Decline means a decline in price of the S&P 500 Index between 9:30 a.m. and 4:00 p.m. on a trading day as compared to the closing price of the S&P 500 Index for the immediately preceding trading day. The Level 1, Level 2, and Level 3 Market Declines that will be applicable for the trading day will be publicly disseminated before 9:30 a.m.
+
+A
+Requirement Specification:
+id: 7.12.2_1
+Test focus: Definition and dissemination of Level 1 Market Decline
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline definition and dissemination
+Condition: S&P 500 Index decline meets Level 1 criteria
+Result: Successful (Level 1 Market Decline is defined and disseminated before 9:30 a.m.)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.2_2
+Test focus: Definition and dissemination of Level 2 Market Decline
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline definition and dissemination
+Condition: S&P 500 Index decline meets Level 2 criteria
+Result: Successful (Level 2 Market Decline is defined and disseminated before 9:30 a.m.)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.2_3
+Test focus: Definition and dissemination of Level 3 Market Decline
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline definition and dissemination
+Condition: S&P 500 Index decline meets Level 3 criteria
+Result: Successful (Level 3 Market Decline is defined and disseminated before 9:30 a.m.)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.2_4
+Test focus: Late dissemination of Market Decline levels
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline dissemination timing
+Condition: Market Decline levels are disseminated after 9:30 a.m.
+Result: Unsuccessful (Late dissemination of Market Decline levels)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.2_5
+Test focus: Accuracy of disseminated Market Decline levels
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline dissemination accuracy
+Condition: Disseminated Market Decline levels do not match actual S&P 500 Index decline
+Result: Unsuccessful (Inaccurate dissemination of Market Decline levels)
+Prerequisite rule: []
+Post rule: []
+Note: The specific criteria for what constitutes a Level 1, 2, or 3 Market Decline in terms of the percentage decline of the S&P 500 Index are not provided in the rule. These details would need to be defined according to the NYSE's rules and procedures for the test cases to be fully executed. Additionally, the test cases assume that the dissemination of Market Decline levels is a critical operation that must be performed before the start of the trading day.
+
+
+Q
+7.12.3 A “Level 1 Market Decline” means a Market Decline of 7%. A “Level 2 Market Decline” means a Market Decline of 13%. A “Level 3 Market Decline” means a Market Decline of 20%.
+
+A
+Requirement Specification:
+id: 7.12.3_1
+Test focus: Validation of Level 1 Market Decline
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline validation
+Condition: S&P 500 Index decline is 7%
+Result: Successful (Validation of Level 1 Market Decline)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.3_2
+Test focus: Validation of Level 2 Market Decline
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline validation
+Condition: S&P 500 Index decline is 13%
+Result: Successful (Validation of Level 2 Market Decline)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.3_3
+Test focus: Validation of Level 3 Market Decline
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline validation
+Condition: S&P 500 Index decline is 20%
+Result: Successful (Validation of Level 3 Market Decline)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.3_4
+Test focus: Invalidation of Market Decline due to incorrect percentage
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline validation
+Condition: S&P 500 Index decline is 6%
+Result: Unsuccessful (Invalidation of Level 1 Market Decline due to incorrect percentage)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.3_5
+Test focus: Invalidation of Market Decline due to incorrect percentage
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline validation
+Condition: S&P 500 Index decline is 12%
+Result: Unsuccessful (Invalidation of Level 2 Market Decline due to incorrect percentage)
+Prerequisite rule: []
+Post rule: []
+id: 7.12.3_6
+Test focus: Invalidation of Market Decline due to incorrect percentage
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to market decline conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to market decline conditions)
+Operation: Market decline validation
+Condition: S&P 500 Index decline is 19%
+Result: Unsuccessful (Invalidation of Level 3 Market Decline due to incorrect percentage)
+Prerequisite rule: []
+Post rule: []
+Note: The test cases assume that the S&P 500 Index is a valid and reliable source for measuring market declines. The actual calculation of the index decline would need to be performed using the appropriate historical data and formulas provided by the S&P 500 Index provider.
+
+
+Q
+7.13 The Chair of the Board or the CEO, or the officer designee of the Chair or the CEO, shall have the power to suspend trading in any and all securities trading on the Exchange whenever in his or her opinion such suspension would be in the public interest. No such action shall continue longer than a period of two days, or as soon thereafter as a quorum of Directors can be assembled, unless the Board approves the continuation of such suspension.
+
+A
+Requirement Specification:
+id: 7.13_1
+Test focus: Suspension of trading by designated authority
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to trading suspension conditions)
+Trading market: New York Stock Exchange (NYSE)
+Trading direction: N/A (not applicable to trading suspension conditions)
+Operation: Trading suspension
+Condition: Chair of the Board or CEO deems suspension in the public interest
+Result: Successful (Trading is suspended)
+Prerequisite rule: []
+Post rule: []
+id: 7.13_2
+Test focus: Duration of trading suspension
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to trading suspension conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to trading suspension conditions)
+Operation: Trading suspension duration
+Condition: Trading is suspended by designated authority
+Result: Successful (Trading suspension does not exceed two days)
+Prerequisite rule: []
+Post rule: []
+id: 7.13_3
+Test focus: Continuation of trading suspension beyond two days
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to trading suspension conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to trading suspension conditions)
+Operation: Trading suspension continuation
+Condition: Trading is suspended by designated authority and the Board approves continuation
+Result: Successful (Trading suspension is extended beyond two days)
+Prerequisite rule: []
+Post rule: []
+id: 7.13_4
+Test focus: Unauthorized continuation of trading suspension
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to trading suspension conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to trading suspension conditions)
+Operation: Trading suspension continuation
+Condition: Trading is suspended by designated authority but the Board does not approve continuation
+Result: Unsuccessful (Trading suspension is not extended beyond two days without Board approval)
+Prerequisite rule: []
+Post rule: []
+id: 7.13_5
+Test focus: Suspension of trading by unauthorized personnel
+Transaction method: Equities trading
+Transaction type: All stock transactions
+Quantity: N/A (not applicable to trading suspension conditions)
+Trading market: NYSE
+Trading direction: N/A (not applicable to trading suspension conditions)
+Operation: Trading suspension
+Condition: Personnel not designated by the Chair or CEO attempts to suspend trading
+Result: Unsuccessful (Trading suspension is not authorized by designated authority)
+Prerequisite rule: []
+Post rule: []
+Note: The test cases assume that the designated authority has the ability to suspend trading based on their opinion of the public interest. The actual criteria for when trading suspension is deemed necessary would need to be defined according to the NYSE's rules and procedures for the test cases to be fully executed. Additionally, the test cases assume that the Board's approval is a necessary step for the continuation of a trading suspension beyond two days.
+
