@@ -20,7 +20,7 @@ def exp4():
     summary_f.write(f"2,纽约证券交易所交易和结算规则,《纽约交易所规则》,9,28,4,{llm_num['chatgpt4'][1]},{round(llm_acc['chatgpt4'][1]*100, 2)},{llm_num['chatglm4'][1]},{round(llm_acc['chatglm4'][1]*100, 2)},{ours_num[1]},{round(ours_acc[1]*100, 2)}\n")
     summary_f.write(f"3,东京证券交易所股票经营规定,《东京证券交易所经营规定》,12,30,6,{llm_num['chatgpt4'][2]},{round(llm_acc['chatgpt4'][2]*100, 2)},{llm_num['chatglm4'][2]},{round(llm_acc['chatglm4'][2]*100, 2)},{ours_num[2]},{round(ours_acc[2]*100, 2)}\n")
     summary_f.write(f"4,东京证券交易所债券经营规定,《东京证券交易所经营规定》,9,22,5,{llm_num['chatgpt4'][3]},{round(llm_acc['chatgpt4'][3]*100, 2)},{llm_num['chatglm4'][3]},{round(llm_acc['chatglm4'][3]*100, 2)},{ours_num[3]},{round(ours_acc[3]*100, 2)}\n")
-    summary_f.write(f"5,香港交易所交易机制,《香港交易所交易机制》,11,38,5,{llm_num['chatgpt4'][4]},{round(llm_acc['chatgpt4'][4]*100, 2)},{llm_num['chatglm4'][4]},{round(llm_acc['chatglm4'][4]*100, 2)},{ours_num[4]},{round(ours_acc[4]*100, 2)}\n")
+    summary_f.write(f"5,香港交易所交易机制,《香港交易所交易机制》,12,38,5,{llm_num['chatgpt4'][4]},{round(llm_acc['chatgpt4'][4]*100, 2)},{llm_num['chatglm4'][4]},{round(llm_acc['chatglm4'][4]*100, 2)},{ours_num[4]},{round(ours_acc[4]*100, 2)}\n")
 
 
 if __name__ == "__main__":

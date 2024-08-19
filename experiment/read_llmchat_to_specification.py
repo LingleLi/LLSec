@@ -47,25 +47,25 @@ def read_llmchat_to_test_scenario(s):
 
 
 if __name__ == "__main__":
-    # for file in sorted(os.listdir("exp1_data/llm_result/")):
-    #     if "_chat_" in file:
-    #         print("处理文件" + file)
-    #         llm = file.split("_")[0]
-    #         dataset = file.split("_")[-1].split(".")[0]
-    #         with open("exp1_data/llm_result/" + file, "r", encoding="utf-8") as f:
-    #             s = f.read()
-    #         test_scenarioes = read_llmchat_to_test_scenario(s)
-    #         json.dump(test_scenarioes, open(f"exp1_data/llm_result/{llm}_test_scenario_{dataset}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    for file in sorted(os.listdir("exp1_data/llm_result/")):
+        if "_chat_" in file:
+            print("处理文件" + file)
+            llm = file.split("_")[0]
+            dataset = file.split("_")[-1].split(".")[0]
+            with open("exp1_data/llm_result/" + file, "r", encoding="utf-8") as f:
+                s = f.read()
+            test_scenarioes = read_llmchat_to_test_scenario(s)
+            json.dump(test_scenarioes, open(f"exp1_data/llm_result/{llm}_test_scenario_{dataset}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     
-    # for file in sorted(os.listdir("exp2_data/llm_result")):
-    #     if "_chat_" in file:
-    #         print("处理文件" + file)
-    #         llm = file.split("_")[0]
-    #         dataset = file.split("_")[-1].split(".")[0]
-    #         with open("exp2_data/llm_result/" + file, "r", encoding="utf-8") as f:
-    #             s = f.read()
-    #         test_scenarioes = read_llmchat_to_test_scenario(s)
-    #         json.dump(test_scenarioes, open(f"exp2_data/llm_result/{llm}_test_scenario_{dataset}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    for file in sorted(os.listdir("exp2_data/llm_result")):
+        if "_chat_" in file:
+            print("处理文件" + file)
+            llm = file.split("_")[0]
+            dataset = file.split("_")[-1].split(".")[0]
+            with open("exp2_data/llm_result/" + file, "r", encoding="utf-8") as f:
+                s = f.read()
+            test_scenarioes = read_llmchat_to_test_scenario(s)
+            json.dump(test_scenarioes, open(f"exp2_data/llm_result/{llm}_test_scenario_{dataset}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
     for file in sorted(os.listdir("exp4_data/llm_result")):
         if "_chat_" in file and "_chinese" in file and "traditional" not in file:
