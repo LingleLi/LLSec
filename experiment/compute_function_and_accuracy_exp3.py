@@ -134,17 +134,15 @@ def compute_accuracy(testcases, scenarios, f, without_knowledge=False):
 def compute_acc_ours(our_dir, specification_dir, without_knowledge=False):
     num, accuracy = [], []
     for file in sorted(os.listdir(specification_dir)):
-        # if "data5" not in file:
+        # if "data4" not in file:
         #     continue
         if "exp1" in our_dir:
             f = open(f"exp1_data/log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
-        elif "exp4" in our_dir:
-            f = open(f"exp4_data/log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
         else:
             if without_knowledge:
-                f = open(f"exp2_data/log/ours_without_knowledge_{file.split('_')[0]}.log", "w", encoding="utf-8")
+                f = open(f"exp3_data/log/ours_without_knowledge_{file.split('_')[0]}.log", "w", encoding="utf-8")
             else:
-                f = open(f"exp2_data/log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
+                f = open(f"exp3_data/log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
         if without_knowledge:
             testcase_file = f"{our_dir}/{file.split('_')[0]}_output_without_knowledge.json"
         else:
@@ -165,13 +163,13 @@ def compute_acc_llm(llm_dir, specification_dir):
     accuracy = {}
     for file in sorted(os.listdir(llm_dir)):
         if "test_scenario" in file:
+            # if "chatglm4" not in file or "data4" not in file:
+            #     continue
             llm = file.split("_")[0]
             if "exp1" in llm_dir:
                 f = open(f"exp1_data/log/{llm}_{file.split('_')[-1].split('.')[0]}.log", "w", encoding="utf-8")
-            elif "exp4" in llm_dir:
-                f = open(f"exp4_data/log/{llm}_{file.split('_')[-1].split('.')[0]}.log", "w", encoding="utf-8")
             else:
-                f = open(f"exp2_data/log/{llm}_{file.split('_')[-1].split('.')[0]}.log", "w", encoding="utf-8")
+                f = open(f"exp3_data/log/{llm}_{file.split('_')[-1].split('.')[0]}.log", "w", encoding="utf-8")
             testcase_file = llm_dir + "/" + file
             scenario_file = f"{specification_dir}/{file.split('_')[-1].split('.')[0]}_scenario.txt"
             testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
@@ -200,7 +198,7 @@ def compute_acc_non_expert(non_expert_dir, specification_dir):
             if "exp1" in non_expert_dir:
                 f = open(f"exp1_data/log/{file.split('.')[0]}.log", "w", encoding="utf-8")
             else:
-                f = open(f"exp2_data/log/{file.split('.')[0]}.log", "w", encoding="utf-8")
+                f = open(f"exp3_data/log/{file.split('.')[0]}.log", "w", encoding="utf-8")
             acc = compute_accuracy(testcases, scenarios, f)
             acc_list.append(acc)
             num_list.append(len(testcases))
@@ -240,7 +238,7 @@ def compute_acc_expert(expert_dir, specification_dir):
             if "exp1" in expert_dir:
                 f = open(f"exp1_data/log/{file.split('.')[0]}.log", "w", encoding="utf-8")
             else:
-                f = open(f"exp2_data/log/{file.split('.')[0]}.log", "w", encoding="utf-8")
+                f = open(f"exp3_data/log/{file.split('.')[0]}.log", "w", encoding="utf-8")
             num.append(len(testcases))
             acc = compute_accuracy(testcases, scenarios, f)
             human = "_".join(file.split("_")[:2])
@@ -249,6 +247,7 @@ def compute_acc_expert(expert_dir, specification_dir):
             accuracy.append(acc)
             f.close()
     return num, accuracy
+
 
 def get_dataset_feature(datasets_d, specification_d):
     rule_num, relation_num, df_num = [], [], []
@@ -260,40 +259,34 @@ def get_dataset_feature(datasets_d, specification_d):
         s = open(specification_d + file, "r", encoding="utf-8").read()
         c = len([line for line in s.split("\n") if line.strip() != ""])
         df_num.append(c)  # 去掉空行
-    relation_num = [0,0,4,3,17]
+    relation_num = [0,0,8,42]
     return rule_num, relation_num, df_num
 
-
-def exp1():
-    summary_f = open("exp1_data/table4.csv", "w", encoding="utf-8")
-    summary_f.write("数据集,数据集特征,,,领域专家,,,非专家,,,GPT-4,,,GLM-4,,,LLSec,,\n")
-    summary_f.write(",#规则,#依赖关系,#DF,#DF,FPI(%),时间(分),#DF,FPI(%),时间(分),#DF,FPI(%),时间(分),#DF,FPI(%),时间(分),#DF,FPI(%),时间(分)\n")
+def exp3():
+    summary_f = open("exp3_data/table5.csv", "w", encoding="utf-8")
+    summary_f.write("数据集,数据集特征,,,领域专家,,非专家,,GPT-4,,GLM-4,,LLSec(无领域知识),,LLSec,\n")
+    summary_f.write(",#规则,#DF,#依赖关系,#DF,FPI(%),#DF,FPI(%),#DF,FPI(%),#DF,FPI(%),#DF,FPI(%),#DF,FPI(%)\n")
     
-    ours_num, ours_acc = compute_acc_ours(our_dir="exp1_data/our_outputs", specification_dir = "exp1_data/specification")
-    # exit(0)
-    non_expert_num, non_expert_acc = compute_acc_non_expert(non_expert_dir = "exp1_data/non_expert_result", specification_dir = "exp1_data/specification")
-    llm_num, llm_acc = compute_acc_llm(llm_dir="exp1_data/llm_result", specification_dir="exp1_data/specification")
-    expert_num, expert_acc = compute_acc_expert(expert_dir="exp1_data/expert_result", specification_dir="exp1_data/specification")
+    expert_num, expert_acc = compute_acc_expert(expert_dir="exp3_data/expert_result", specification_dir="exp3_data/specification")
+    non_expert_num, non_expert_acc = compute_acc_non_expert(non_expert_dir = "exp3_data/non_expert_result", specification_dir = "exp3_data/specification")
+    llm_num, llm_acc = compute_acc_llm(llm_dir="exp3_data/llm_result", specification_dir="exp3_data/specification")
+    ours_num, ours_acc = compute_acc_ours(our_dir="exp3_data/our_outputs", specification_dir = "exp3_data/specification", without_knowledge=False)
+    ours_num_noknowledge, ours_acc_noknowledge = compute_acc_ours(our_dir="exp3_data/our_outputs", specification_dir = "exp3_data/specification", without_knowledge=True)
+    
     chatgpt_acc, chatglm_acc = llm_acc['gpt4'], llm_acc['glm4']
     chatgpt_num, chatglm_num = llm_num['gpt4'], llm_num['glm4']
     ours_acc = [round(acc, 4)*100 for acc in ours_acc]
+    ours_acc_noknowledge = [round(acc, 4)*100 for acc in ours_acc_noknowledge]
     expert_acc = [round(acc, 4)*100 for acc in expert_acc]
     non_expert_acc = [round(acc, 4)*100 for acc in non_expert_acc]
     chatglm_acc = [round(acc, 4)*100 for acc in chatglm_acc]
     chatgpt_acc = [round(acc, 4)*100 for acc in chatgpt_acc]
 
-    rule_num, relation_num, df_num = get_dataset_feature("exp1_data/dataset/", "exp1_data/specification/")
-    expert_time = [33,40,35,40,50]
-    non_expert_time = [75,73,85,70,74]
-    chatgpt_time = [20,15,25,17,25]
-    chatglm_time = [18,19,9,20,20]
-    ours_time = [4,5,5,6,6]
+    rule_num, relation_num, df_num = get_dataset_feature("exp3_data/dataset/", "exp3_data/specification/")
 
-    for i in range(5):
-        summary_f.write(f"{i+1},{rule_num[i]},{relation_num[i]},{df_num[i]},{expert_num[i]},{expert_acc[i]},{expert_time[i]},{non_expert_num[i]},{non_expert_acc[i]},{non_expert_time[i]},{chatgpt_num[i]},{chatgpt_acc[i]},{chatgpt_time[i]},{chatglm_num[i]},{chatglm_acc[i]},{chatglm_time[i]},{ours_num[i]},{ours_acc[i]},{ours_time[i]}\n")
+    for i in range(4):
+        summary_f.write(f"{i+1},{rule_num[i]},{relation_num[i]},{df_num[i]},{expert_num[i]},{expert_acc[i]},{non_expert_num[i]},{non_expert_acc[i]},{chatgpt_num[i]},{chatgpt_acc[i]},{chatglm_num[i]},{chatglm_acc[i]},{ours_num_noknowledge[i]},{ours_acc_noknowledge[i]},{ours_num[i]},{ours_acc[i]}\n")
     summary_f.close()
 
-
-
 if __name__ == "__main__":
-    exp1()
+    exp3()

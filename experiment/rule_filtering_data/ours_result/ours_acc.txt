@@ -4,8 +4,8 @@ acc: 0.9910
 
 
 Ours llama2 lora:
-308 are correct with a total of 334
-acc: 0.9222
+307 are correct with a total of 334
+acc: 0.9192
 
 
 Ours llama2 fine-tune:

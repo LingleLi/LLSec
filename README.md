@@ -119,14 +119,13 @@ cd experiment
     | 规则理解 | FBR形式 | 2308 | 0.37 | 28 | - | - |
     | 关系识别 | FBR形式 | 2562 | 5.46 | 12 | 326 | 2562 |
 
-2. To obtain the results in Table 3 and Table 4, run:
+2. To obtain the results in Table 4, run:
     ```bash
     python generate_specification_exp1.py
-    python generate_specification exp2.py
-    python compute_function_and_accuracy.py
+    python compute_function_and_accuracy_exp1.py
     ```
 
-    After the command finish running, the results are organized into tabular data in *CSV* format and stored in **exp1_data/table3.csv** and **exp2_data/table4.csv**. Example outputs of **Table 3** are:
+    After the command finish running, the results are organized into tabular data in *CSV* format and stored in **exp1_data/table4.csv**. Example outputs of **Table 4** are:
 
     <table>
         <tr>
@@ -152,7 +151,27 @@ cd experiment
         </tr>
     </table>
 
-    Example outputs of **Table 4** are:
+
+3. To obtain the results in Figure 6, run:
+    ```bash
+    python compute_sc_LLM_acc.py
+    python compute_tc_LLM_acc.py
+    python draw_figure.py
+    ```
+    After the command finish running, the results are organized into a figure and stored in **rule_filtering_data/figure_6a.svg** and **rule_extraction_data/figure_6b.svg**.
+    
+    **Figure 6(a)**:
+    ![rule_filtering_data/figure_6a.svg](experiment/rule_filtering_data/figure_6a.svg)
+    **Figure 6(b)**:
+    ![rule_extraction_data/figure_6b.svg](experiment/rule_extraction_data/figure_6b.svg)
+
+4. To obtain the results in Table 5, run:
+    ```bash
+    python generate_specification_exp3.py
+    python compute_function_and_accuracy_exp3.py
+    ```
+
+    After the command finish running, the results are organized into tabular data in *CSV* format and stored in **exp3_data/table5.csv**. Example outputs of **Table 5** are:
     <table>
         <tr>
             <th rowspan="2">数据集</th><th colspan="3">数据集特征</th><th colspan="2">领域专家</th><th colspan="2">非专家</th><th colspan="2">GPT-4</th><th colspan="2">GLM-4</th><th colspan="2">LLSec(无领域知识)</th><th colspan="2">LLSec</th>
@@ -175,19 +194,37 @@ cd experiment
     </table>
 
 
-3. To obtain the results in Figure 6, run:
+5. To obtain the results in Table 6, run:
     ```bash
-    python compute_sc_LLM_acc.py
-    python compute_tc_LLM_acc.py
-    python draw_figure.py
+    python generate_specification_exp4.py
+    python compute_function_and_accuracy_exp4.py
     ```
-    After the command finish running, the results are organized into a figure and stored in **rule_filtering_data/figure_6a.svg** and **rule_extraction_data/figure_6b.svg**.
-    
-    **Figure 6(a)**:
-    ![rule_filtering_data/figure_6a.svg](experiment/rule_filtering_data/figure_6a.svg)
-    **Figure 6(b)**:
-    ![rule_extraction_data/figure_6b.svg](experiment/rule_extraction_data/figure_6b.svg)
 
+    After the command finish running, the results are organized into tabular data in *CSV* format and stored in **exp4_data/table6.csv**. Example outputs of **Table 6** are:
+
+    <table>
+        <tr>
+            <th rowspan="2">数据集</th><th colspan="5">数据集特征</th><th colspan="2">GPT-4</th><th colspan="2">GLM-4</th><th colspan="2">LLSec</th>
+        </tr>
+        <tr>
+            <th>数据集名称</th><th>来源</th><th>#规则</th><th>#DF</th><th>#依赖关系</th><th>#DF</th><th>FPI(%)</th><th>#DF</th><th>FPI(%)</th><th>#DF</th><th>FPI(%)</th>
+        </tr>
+        <tr>
+            <td>1</td><td>纽约证券交易所股票交易规则</td><td>《纽约交易所规则》</td><td>10</td><td>44</td><td>7</td><td>48</td><td>73.15</td><td>56</td><td>68.93</td><td>579</td><td><b>82.95</b></td>
+        </tr>
+        <tr>
+            <td>2</td><td>纽约证券交易所交易和结算规则</td><td>《纽约交易所规则》</td><td>9</td><td>28</td><td>4</td><td>30</td><td>72.12</td><td>76</td><td>56.50</td><td>2497</td><td><b>76.68</b></td>
+        </tr>
+        <tr>
+            <td>3</td><td>东京证券交易所股票经营规定</td><td>《东京证券交易所经营规定》</td><td>12</td><td>30</td><td>6</td><td>27</td><td>55.04</td><td>62</td><td>51.79</td><td>368</td><td><b>77.67</b></td>
+        </tr>
+        <tr>
+            <td>4</td><td>东京证券交易所债券经营规定</td><td>《东京证券交易所经营规定》</td><td>9</td><td>22</td><td>5</td><td>20</td><td>56.49</td><td>36</td><td>52.91</td><td>537</td><td><b>81.60</b></td>
+        </tr>
+        <tr>
+            <td>5</td><td>香港交易所交易机制</td><td>《香港交易所交易机制》</td><td>11</td><td>38</td><td>5</td><td>25</td><td>60.24</td><td>52</td><td>69.20</td><td>3062</td><td><b>79.84</b></td>
+        </tr>
+    </table>
 
 
 ## Detailed Instruction

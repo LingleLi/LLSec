@@ -1,0 +1,283 @@
+Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            规则筛选完成，包含句子数：366，其中规则有98条，非规则有226条，领域知识有42条
+规则过滤消耗时间: 4.137234687805176
+规则组合完成，包含规则数：135，消耗时间0.004473686218261719
+规则理解阶段用到的领域知识数：28
+规则理解完成，包含规则数：2308，消耗时间0.466747522354126
+规则间关系识别用到的领域知识数：12
+规则间关系挖掘完成，包含规则数：2562，消耗时间5.003578424453735
+包含关系数：326, 其中显式关系14, 隐式关系312
+总共消耗时间: 9.658372163772583
+Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            处理文件data1_input.json
+规则组合完成，包含规则数：8，消耗时间0.0012602806091308594
+规则理解阶段用到的领域知识数：25
+规则理解完成，包含规则数：14，消耗时间0.005596160888671875
+规则间关系识别用到的领域知识数：2
+规则间关系挖掘完成，包含规则数：14，消耗时间0.0018858909606933594
+包含关系数：0, 其中显式关系0, 隐式关系0
+《data1》总共消耗时间: 0.009101152420043945
+处理文件data2_input.json
+规则组合完成，包含规则数：20，消耗时间0.001409292221069336
+规则理解阶段用到的领域知识数：37
+规则理解完成，包含规则数：700，消耗时间0.10808372497558594
+规则间关系识别用到的领域知识数：1
+规则间关系挖掘完成，包含规则数：700，消耗时间0.15029573440551758
+包含关系数：0, 其中显式关系0, 隐式关系0
+《data2》总共消耗时间: 0.2698674201965332
+处理文件data3_input.json
+规则组合完成，包含规则数：16，消耗时间0.0011794567108154297
+规则理解阶段用到的领域知识数：31
+规则理解完成，包含规则数：212，消耗时间0.03721737861633301
+规则间关系识别用到的领域知识数：6
+规则间关系挖掘完成，包含规则数：240，消耗时间0.05224275588989258
+包含关系数：7, 其中显式关系0, 隐式关系7
+《data3》总共消耗时间: 0.09452128410339355
+处理文件data4_input.json
+规则组合完成，包含规则数：14，消耗时间0.0011525154113769531
+规则理解阶段用到的领域知识数：30
+规则理解完成，包含规则数：1016，消耗时间0.14719939231872559
+规则间关系识别用到的领域知识数：4
+规则间关系挖掘完成，包含规则数：1144，消耗时间0.7270572185516357
+包含关系数：2, 其中显式关系0, 隐式关系2
+《data4》总共消耗时间: 0.8938586711883545
+处理文件data5_input.json
+规则组合完成，包含规则数：38，消耗时间0.0020208358764648438
+规则理解阶段用到的领域知识数：23
+规则理解完成，包含规则数：430，消耗时间0.07773208618164062
+规则间关系识别用到的领域知识数：6
+规则间关系挖掘完成，包含规则数：518，消耗时间0.18425869941711426
+包含关系数：17, 其中显式关系0, 隐式关系17
+《data5》总共消耗时间: 0.2720932960510254
+我们的工具在数据集data1上的生成功能点正确率为0.8752
+我们的工具在数据集data2上的生成功能点正确率为0.9392
+我们的工具在数据集data3上的生成功能点正确率为0.9327
+我们的工具在数据集data4上的生成功能点正确率为0.9095
+我们的工具在数据集data5上的生成功能点正确率为0.942
+tester_ly在数据集data1上的业务场景覆盖率为0.8128
+tester_ly在数据集data2上的业务场景覆盖率为0.7355
+tester_ly在数据集data3上的业务场景覆盖率为0.7227
+tester_ly在数据集data4上的业务场景覆盖率为0.7189
+tester_ly在数据集data5上的业务场景覆盖率为0.5587
+tester_ysq在数据集data1上的业务场景覆盖率为0.5833
+tester_ysq在数据集data2上的业务场景覆盖率为0.7455
+tester_ysq在数据集data3上的业务场景覆盖率为0.5723
+tester_ysq在数据集data4上的业务场景覆盖率为0.5124
+tester_ysq在数据集data5上的业务场景覆盖率为0.4856
+non-expert在数据集1上的平均业务场景覆盖率为0.6981
+non-expert在数据集2上的平均业务场景覆盖率为0.7405
+non-expert在数据集3上的平均业务场景覆盖率为0.6475
+non-expert在数据集4上的平均业务场景覆盖率为0.6157
+non-expert在数据集5上的平均业务场景覆盖率为0.5222
+glm3在数据集data1上的业务场景覆盖率为0.6356
+glm3在数据集data2上的业务场景覆盖率为0.4233
+glm3在数据集data3上的业务场景覆盖率为0.6279
+glm3在数据集data4上的业务场景覆盖率为0.5517
+glm3在数据集data5上的业务场景覆盖率为0.7071
+glm4在数据集data1上的业务场景覆盖率为0.5069
+glm4在数据集data2上的业务场景覆盖率为0.8211
+glm4在数据集data3上的业务场景覆盖率为0.7173
+glm4在数据集data4上的业务场景覆盖率为0.6026
+glm4在数据集data5上的业务场景覆盖率为0.4056
+gpt4在数据集data1上的业务场景覆盖率为0.5599
+gpt4在数据集data2上的业务场景覆盖率为0.8031
+gpt4在数据集data3上的业务场景覆盖率为0.8263
+gpt4在数据集data4上的业务场景覆盖率为0.5956
+gpt4在数据集data5上的业务场景覆盖率为0.7583
+expert_data1.json在数据集data1上的业务场景覆盖率为0.8911
+expert_data2.json在数据集data2上的业务场景覆盖率为0.9392
+expert_data3.json在数据集data3上的业务场景覆盖率为0.9126
+expert_data4.json在数据集data4上的业务场景覆盖率为0.862
+expert_data5.json在数据集data5上的业务场景覆盖率为0.8325
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+Ours mengzi:
+331 are correct with a total of 334
+acc: 0.9910
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.35s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.39s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.31s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.33s/it]
+Ours llama2 lora:
+307 are correct with a total of 334
+acc: 0.9192
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.10s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.15s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:17<00:00,  5.62s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:17<00:00,  5.76s/it]
+Ours llama2 fine-tune:
+313 are correct with a total of 334
+acc: 0.9371
+file chatglm_predict_result_10shot.json, acc: 0.4161676646706587
+real_0_pred_1: 122
+real_0_pred_2: 52
+real_1_pred_0: 5
+real_1_pred_2: 3
+real_2_pred_0: 0
+real_2_pred_1: 13
+file chatglm_predict_result_5shot.json, acc: 0.40119760479041916
+real_0_pred_1: 127
+real_0_pred_2: 53
+real_1_pred_0: 4
+real_1_pred_2: 1
+real_2_pred_0: 0
+real_2_pred_1: 15
+file chatglm_predict_result_docshot.json, acc: 0.6347305389221557
+real_0_pred_1: 91
+real_0_pred_2: 1
+real_1_pred_0: 13
+real_1_pred_2: 0
+real_2_pred_0: 3
+real_2_pred_1: 14
+file chatgpt_predict_result_10shot.json, acc: 0.5958083832335329
+real_0_pred_1: 83
+real_0_pred_2: 28
+real_1_pred_0: 7
+real_1_pred_2: 7
+real_2_pred_0: 0
+real_2_pred_1: 10
+file chatgpt_predict_result_5shot.json, acc: 0.592814371257485
+real_0_pred_1: 69
+real_0_pred_2: 40
+real_1_pred_0: 11
+real_1_pred_2: 2
+real_2_pred_0: 2
+real_2_pred_1: 12
+file chatgpt_predict_result_docshot.json, acc: 0.7245508982035929
+real_0_pred_1: 66
+real_0_pred_2: 0
+real_1_pred_0: 9
+real_1_pred_2: 0
+real_2_pred_0: 3
+real_2_pred_1: 14
+/home/asus/miniconda3/envs/test_scenario/lib/python3.10/site-packages/nltk/translate/bleu_score.py:552: UserWarning: 
+The hypothesis contains 0 counts of 3-gram overlaps.
+Therefore the BLEU score evaluates to 0, independently of
+how many N-gram overlaps of lower order it contains.
+Consider using lower n-gram order or use SmoothingFunction()
+  warnings.warn(_msg)
+/home/asus/miniconda3/envs/test_scenario/lib/python3.10/site-packages/nltk/translate/bleu_score.py:552: UserWarning: 
+The hypothesis contains 0 counts of 4-gram overlaps.
+Therefore the BLEU score evaluates to 0, independently of
+how many N-gram overlaps of lower order it contains.
+Consider using lower n-gram order or use SmoothingFunction()
+  warnings.warn(_msg)
+模型mengzi, 预测文件ours_test_result_mengzi.txt: bleu: 0.8243, precision: 0.7543, recall: 0.8032, F1 score: 0.7687
+模型llama2_fine-tune, 预测文件ours_test_result_llama2_fine-tune.json: bleu: 0.8671, precision: 0.776, recall: 0.7659, F1 score: 0.7679
+模型llama2_lora, 预测文件ours_test_result_llama2_lora.json: bleu: 0.9647, precision: 0.93, recall: 0.9355, F1 score: 0.932
+模型chatglm, 预测文件chatglm_10shot.json: bleu: 0.5334, precision: 0.7579, recall: 0.5205, F1 score: 0.5456
+模型chatglm, 预测文件chatglm_5shot.json: bleu: 0.5326, precision: 0.7412, recall: 0.537, F1 score: 0.5433
+模型chatglm, 预测文件chatglm_docshot.json: bleu: 0.6329, precision: 0.8448, recall: 0.4748, F1 score: 0.553
+模型chatgpt, 预测文件chatgpt_10shot.json: bleu: 0.5554, precision: 0.7983, recall: 0.5482, F1 score: 0.6054
+模型chatgpt, 预测文件chatgpt_5shot.json: bleu: 0.5763, precision: 0.6976, recall: 0.5714, F1 score: 0.5543
+模型chatgpt, 预测文件chatgpt_docshot.json: bleu: 0.6204, precision: 0.9776, recall: 0.4469, F1 score: 0.5714
+Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            处理文件data1_input.json
+规则组合完成，包含规则数：16，消耗时间0.002468109130859375
+规则理解阶段用到的领域知识数：21
+规则理解完成，包含规则数：198，消耗时间0.03838324546813965
+规则间关系识别用到的领域知识数：1
+规则间关系挖掘完成，包含规则数：198，消耗时间0.07216286659240723
+包含关系数：0, 其中显式关系0, 隐式关系0
+《data1》总共消耗时间: 0.0751488208770752
+处理文件data2_input.json
+规则组合完成，包含规则数：36，消耗时间0.0013980865478515625
+规则理解阶段用到的领域知识数：23
+规则理解完成，包含规则数：358，消耗时间0.06642007827758789
+规则间关系识别用到的领域知识数：1
+规则间关系挖掘完成，包含规则数：358，消耗时间0.13843441009521484
+包含关系数：0, 其中显式关系0, 隐式关系0
+《data2》总共消耗时间: 0.14370322227478027
+处理文件data3_input.json
+规则组合完成，包含规则数：30，消耗时间0.0013821125030517578
+规则理解阶段用到的领域知识数：24
+规则理解完成，包含规则数：274，消耗时间0.056797027587890625
+规则间关系识别用到的领域知识数：5
+规则间关系挖掘完成，包含规则数：333，消耗时间0.6313037872314453
+包含关系数：8, 其中显式关系0, 隐式关系8
+《data3》总共消耗时间: 0.6364390850067139
+处理文件data4_input.json
+规则组合完成，包含规则数：37，消耗时间0.00196075439453125
+规则理解阶段用到的领域知识数：22
+规则理解完成，包含规则数：360，消耗时间0.06466126441955566
+规则间关系识别用到的领域知识数：12
+规则间关系挖掘完成，包含规则数：524，消耗时间0.7704792022705078
+包含关系数：42, 其中显式关系2, 隐式关系40
+《data4》总共消耗时间: 0.7785241603851318
+expert_data1.json在数据集data1上的业务场景覆盖率为0.9583
+expert_data2.json在数据集data2上的业务场景覆盖率为0.9224
+expert_data3.json在数据集data3上的业务场景覆盖率为0.8809
+expert_data4.json在数据集data4上的业务场景覆盖率为0.7828
+tester_data1.json在数据集data1上的业务场景覆盖率为0.75
+tester_data2.json在数据集data2上的业务场景覆盖率为0.6999
+tester_data3.json在数据集data3上的业务场景覆盖率为0.5812
+tester_data4.json在数据集data4上的业务场景覆盖率为0.5179
+non-expert在数据集1上的平均业务场景覆盖率为0.75
+non-expert在数据集2上的平均业务场景覆盖率为0.6999
+non-expert在数据集3上的平均业务场景覆盖率为0.5812
+non-expert在数据集4上的平均业务场景覆盖率为0.5179
+glm3在数据集data1上的业务场景覆盖率为0.7333
+glm3在数据集data2上的业务场景覆盖率为0.6942
+glm3在数据集data3上的业务场景覆盖率为0.5594
+glm3在数据集data4上的业务场景覆盖率为0.4174
+glm4在数据集data1上的业务场景覆盖率为0.7833
+glm4在数据集data2上的业务场景覆盖率为0.7341
+glm4在数据集data3上的业务场景覆盖率为0.6419
+glm4在数据集data4上的业务场景覆盖率为0.5515
+gpt4在数据集data1上的业务场景覆盖率为0.7917
+gpt4在数据集data2上的业务场景覆盖率为0.7746
+gpt4在数据集data3上的业务场景覆盖率为0.6771
+gpt4在数据集data4上的业务场景覆盖率为0.5128
+我们的工具在数据集data1上的生成功能点正确率为0.9
+我们的工具在数据集data2上的生成功能点正确率为0.906
+我们的工具在数据集data3上的生成功能点正确率为0.9431
+我们的工具在数据集data4上的生成功能点正确率为0.9429
+我们的工具在数据集data1上的生成功能点正确率为0.7
+我们的工具在数据集data2上的生成功能点正确率为0.7102
+我们的工具在数据集data3上的生成功能点正确率为0.5872
+我们的工具在数据集data4上的生成功能点正确率为0.4449
+Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            处理文件data1_input.json
+规则组合完成，包含规则数：24，消耗时间0.000986337661743164
+规则理解阶段用到的领域知识数：42
+规则理解完成，包含规则数：524，消耗时间0.06740593910217285
+规则间关系识别用到的领域知识数：4
+规则间关系挖掘完成，包含规则数：579，消耗时间1.345597505569458
+包含关系数：7, 其中显式关系5, 隐式关系2
+《data1》总共消耗时间: 1.4231517314910889
+处理文件data2_input.json
+规则组合完成，包含规则数：26，消耗时间0.0007331371307373047
+规则理解阶段用到的领域知识数：42
+规则理解完成，包含规则数：2670，消耗时间0.4032711982727051
+规则间关系识别用到的领域知识数：1
+规则间关系挖掘完成，包含规则数：2497，消耗时间9.39437460899353
+包含关系数：12, 其中显式关系12, 隐式关系0
+《data2》总共消耗时间: 9.843951225280762
+处理文件data3_input.json
+规则组合完成，包含规则数：26，消耗时间0.0007991790771484375
+规则理解阶段用到的领域知识数：25
+规则理解完成，包含规则数：364，消耗时间0.045920372009277344
+规则间关系识别用到的领域知识数：1
+规则间关系挖掘完成，包含规则数：368，消耗时间0.31182026863098145
+包含关系数：0, 其中显式关系0, 隐式关系0
+《data3》总共消耗时间: 0.364429235458374
+处理文件data4_input.json
+规则组合完成，包含规则数：21，消耗时间0.0007236003875732422
+规则理解阶段用到的领域知识数：21
+规则理解完成，包含规则数：532，消耗时间0.06763219833374023
+规则间关系识别用到的领域知识数：1
+规则间关系挖掘完成，包含规则数：537，消耗时间0.7872929573059082
+包含关系数：3, 其中显式关系3, 隐式关系0
+《data4》总共消耗时间: 0.8643884658813477
+处理文件data5_input.json
+规则组合完成，包含规则数：32，消耗时间0.0008549690246582031
+规则理解阶段用到的领域知识数：42
+规则理解完成，包含规则数：3062，消耗时间0.4532630443572998
+规则间关系识别用到的领域知识数：1
+规则间关系挖掘完成，包含规则数：3062，消耗时间0.38632941246032715
+包含关系数：0, 其中显式关系0, 隐式关系0
+《data5》总共消耗时间: 0.8929486274719238
+我们的工具在数据集data1上的生成功能点正确率为0.8295
+我们的工具在数据集data2上的生成功能点正确率为0.7668
+我们的工具在数据集data3上的生成功能点正确率为0.7767
+我们的工具在数据集data4上的生成功能点正确率为0.816
+我们的工具在数据集data5上的生成功能点正确率为0.7984
+glm4在数据集data1上的业务场景覆盖率为0.6893
+glm4在数据集data2上的业务场景覆盖率为0.565
+glm4在数据集data3上的业务场景覆盖率为0.5179
+glm4在数据集data4上的业务场景覆盖率为0.5291
+glm4在数据集data5上的业务场景覆盖率为0.692
+gpt4在数据集data1上的业务场景覆盖率为0.7315
+gpt4在数据集data2上的业务场景覆盖率为0.7212
+gpt4在数据集data3上的业务场景覆盖率为0.5504
+gpt4在数据集data4上的业务场景覆盖率为0.5649
+gpt4在数据集data5上的业务场景覆盖率为0.6024
